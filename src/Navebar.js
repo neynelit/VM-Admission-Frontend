@@ -17,6 +17,7 @@ const cookies = new Cookies()
 function Navebar() {
     const navigate = useNavigate()
     const pathname = window.location.href
+    console.log('Created by Hesham Reza');
 
     const [ homeNav, setHomeNav ] = useState('nav-item-active')
     const [ capatcityNav, setCapacityNav ] = useState('')
