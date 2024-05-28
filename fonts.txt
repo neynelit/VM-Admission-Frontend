@@ -1,0 +1,5 @@
+logo --> font-family: "Merriweather", serif;
+logo-para --> font-family: "Oswald", sans-serif;
+button --> font-family: "Space Grotesk", sans-serif;
+head --> font-family: "Merriweather", serif;
+para --> font-family: "Josefin Sans", sans-serif;

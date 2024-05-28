@@ -1,0 +1,154 @@
+.receipt-container{
+    display: flex;
+    justify-content: center;
+    color: rgb(165, 0, 0);
+    margin-bottom: 20px;
+    margin-top: 100px;
+}
+
+.receipt-container-row{
+    padding: 5px;
+    /* box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3); */
+    width: 600px;
+    justify-content: center;
+    /* outline: 5px solid rgb(220, 0, 0); */
+    box-shadow: 0px -7px 0px 0px rgb(165, 0, 0), 5px 5px 25px rgba(0, 0, 0, 0.3);
+    border-top: 7px solid rgb(247, 201, 35);
+    border-bottom: 10px solid rgb(165, 0, 0);
+    margin-top: 50px;
+}
+
+.receipt-container-col{
+    text-align: center;
+}
+
+.receipt-container-col-1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.receipt-container-col-1 img{
+    width: 100px;
+    height: 100px;
+}
+
+.receipt-student-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.receipt-student-details h6{
+    font-family: "Merriweather", serif;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.receipt-student-details p{
+    margin: 0;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 13px;
+}
+
+.receipt-student-details-1{
+    text-align: end;
+}
+
+.receipt-student-details-2{
+    text-align: start;
+}
+
+.receipt-student-details-3{
+    text-align: end;
+}
+
+.receipt-student-details-3 h6{
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.receipt-container-col-4{
+    padding: 5px;
+}
+
+.receipt-container-col-4 table{
+    border: 2px solid grey;
+    padding: 5px;
+}
+
+.receipt-container-col-4 table thead{
+    background-color: rgb(165, 0, 0);
+    color: white;
+}
+
+.receipt-container-col-4 table thead tr th:first-child{
+    text-align: start;
+}
+
+.receipt-container-col-4 table tbody tr:first-child{
+    color: black;
+}
+
+.receipt-container-col-4 table tbody tr:first-child td:first-child{
+    text-align: start;
+}
+
+.receipt-container-col-4 table tbody tr:last-child td:first-child{
+    text-align: end;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.receipt-container-col-5{
+    display: flex;
+    justify-content: space-between;
+}
+
+.receipt-student-details-4{
+    text-align: start;
+}
+
+.receipt-student-details-4 p{
+    font-size: 13px;
+}
+
+.receipt-student-details-4 p:last-child{
+    font-size: 16px;
+    color: rgb(75, 75, 75);
+}
+
+.receipt-student-details-5{
+    text-align: end;
+}
+
+.receipt-student-details-5 h6{
+    font-size: 15px;
+    margin-top: 7px;
+}
+
+.receipt-container-2{
+    display: flex;
+    justify-content: center;
+}
+
+.receipt-container-2-row{
+    width: 600px;
+}
+
+.receipt-container-2-col{
+    margin-top: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.receipt-container-2 .receipt-container-2-row .receipt-container-2-col a{
+    font-size: 17px;
+    cursor: pointer;
+    color: blue;
+}
+
+.receipt-container-2 .receipt-container-2-row .receipt-container-2-col a:hover{
+    color: rgb(165, 0, 0);
+}

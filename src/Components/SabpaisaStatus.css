@@ -1,0 +1,35 @@
+.response-container{
+    display: flex;
+    justify-content: center;
+}
+
+.response-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+    margin-top: 150px;
+    box-shadow: 0px -7px 0px 0px rgb(165, 0, 0), 5px 5px 25px rgba(0, 0, 0, 0.3);
+    border-top: 7px solid rgb(247, 201, 35);
+    border-bottom: 10px solid rgb(165, 0, 0);
+}
+
+.response-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.response-col a:last-child{
+    text-align: center;
+}
+
+.next-page-link{
+    color: blue !important;
+}
+
+.next-page-link:hover{
+    color: rgb(165, 0, 0) !important;
+}

@@ -1,0 +1,15 @@
+#app_input{
+    border: 2px solid rgb(114, 0, 0);
+    font-family: "Josefin Sans", sans-serif;
+    padding: 4px 20px;
+    border-radius: 7px;
+    color: rgb(202, 0, 0);
+}
+
+::placeholder {
+    color: rgb(202, 0, 0);
+}
+  
+::-ms-input-placeholder { /* Edge 12 -18 */
+    color: rgb(202, 0, 0);
+}

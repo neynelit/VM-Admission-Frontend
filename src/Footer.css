@@ -1,0 +1,113 @@
+.footer-container{
+    background-image: linear-gradient(to right, rgb(202, 0, 0), rgb(114, 0, 0));
+    margin-top: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    height: 100%;
+}
+
+.top-nav-footer{
+   padding: 4px;
+    color: white;
+}
+
+.top-nav-footer ul{
+    list-style-type: '\27A4';
+    margin-top: 7px;
+}
+
+.top-nav-footer ul li{
+    width: fit-content;
+    font-family: "Space Grotesk", sans-serif;
+    padding: 7px;
+    padding-left: 12px;
+}
+
+.top-nav-footer ul li:hover{
+    background-color: white;
+    color: rgb(202, 0, 0);
+    box-shadow: 1px 1px 10px rgba(46, 46, 46, 0.7);
+}
+
+.footer-contact-1, .footer-contact-2{
+    color: white;
+}
+
+.footer-contact-2 ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-contact-1 ul, .footer-contact-2 ul{
+    list-style-type: none;
+}
+
+.footer-contact-1 ul li a{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    color: white;
+    align-items: end;
+}
+
+.footer-contact-2 ul li a{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    color: white;
+}
+
+.footer-contact-1 ul li a:hover, .footer-contact-2 ul li a:hover{
+    text-decoration: none;
+}
+
+.footer-contact-2 ul li:last-child a:hover{
+    color: white;
+}
+
+.footer-fa{
+    padding-top: 1px;
+    padding-right: 5px;
+}
+
+.footer-head h6, .footer-head h6{
+    font-family: "Merriweather", serif;
+}
+
+.footer-contact-1 ul li a p, .footer-contact-2 ul li a p{
+    font-family: "Josefin Sans", sans-serif;
+    padding-left: 4px;
+}
+
+.footer-head{
+    display: flex;
+    flex-direction: row;
+}
+
+.copyright{
+    font-family: "Josefin Sans", sans-serif;
+    text-align: center;
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 769px) {
+    .top-nav-footer{
+        display: none;
+    }
+
+    .footer-contact-1{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer-contact-2{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .footer-contact-2 ul li a{
+        flex-direction: column;
+        align-items: center;
+    }
+}

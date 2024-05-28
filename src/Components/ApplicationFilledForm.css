@@ -1,0 +1,95 @@
+.application-head{
+    text-align: center;
+    color: rgb(167, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 0px 25px 0px;
+
+}
+
+.application-head h5{
+    font-size: 26px;
+    font-family: "Merriweather", serif;
+    font-weight: bold;
+}
+
+.application-head-div{
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.application-head-div:last-child{
+    justify-content: space-between;
+    padding: 0px 100px;
+}
+
+.application-box-head{
+    text-align: start;
+    padding-left: 25px;
+}
+
+.application-box-head h6{
+    font-family: "Merriweather", serif;
+    font-size: 20px;
+    color: rgb(167, 0, 0);
+}
+
+.application-box{
+    padding: 5px;
+    margin: 20px 0px;
+
+}
+
+.application-box-row{
+    padding: 7px;
+    border: 2px solid rgb(167, 0, 0);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.application-box-row-head h6{
+    font-family: "Merriweather", serif;
+    font-size: 18px;
+    color: rgb(167, 0, 0);
+}
+
+.application-box-details{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.application-box-details-text{
+    display: flex;
+}
+
+.application-box-details-text p{
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 16px;
+}
+
+.application-box-details-text p:last-child{
+    text-indent: 7px;
+    color: rgb(167, 0, 0);
+}
+
+.application-box-img{
+    display: flex;
+    justify-content: center;
+}
+
+.application-box-img img{
+    width: 200px;
+    height: fit-content;
+}
+
+@media screen and (max-width: 425px) {
+    .application-head-div:last-child{
+        flex-direction: column;
+        justify-content: center;
+        padding: 0;
+    }
+}

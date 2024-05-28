@@ -1,0 +1,117 @@
+.main-dashboard-container{
+    background-color: rgba(196, 196, 196, 0.3);
+    height: 100vh;
+}
+
+.dashboard-header{
+    background-color: white;
+    margin-top: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-top{
+    display: flex;
+    font-size: 35px;
+    justify-content: center;
+}
+
+.dashboard-top a{
+    padding-top: 17px;
+}
+
+.dashboard-top h6{
+    font-size: 35px;
+    height: 80px;
+    padding-top: 23px;
+    padding-left: 10px;
+    font-family: "Merriweather", serif;
+}
+
+.dashboard-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: red;
+    width: 100%;
+}
+
+.dashboard-bottom a{
+    text-decoration: none;
+}
+
+.student-number{
+    margin-top: 20px;
+}
+
+.student-number-box{
+    padding: 20px;
+    max-width: 500px;
+}
+
+.student-number-box-inner{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.student-number-box-inner a{
+    font-size: 60px;
+    padding-left: 15px;
+}
+
+.student-number-box-text{
+    padding: 10px 20px;
+}
+
+.student-number-box-text h6{
+    font-size: 25px;
+    font-family: "Merriweather", serif;
+}
+
+.student-number-box-text p{
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 17px;
+}
+
+.pie-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: aliceblue;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pie-container h4{
+    font-family: "Merriweather", serif;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.pie-chart{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px){
+    .student-number-box-inner{
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .dashboard-bottom{
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-top: 28px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .dashboard-bottom{
+        margin-top: 70px;
+    }
+}

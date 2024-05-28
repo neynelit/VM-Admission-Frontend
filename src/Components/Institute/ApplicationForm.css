@@ -1,0 +1,17 @@
+.application-form-box{
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.application-form-box h5{
+    font-size: 25px;
+    font-family: "Merriweather", serif;
+    color: rgb(165, 0, 0);
+}
+
+.application-form-box p{
+    font-size: 15px;
+    padding-top: 5px;
+    margin: 0;
+    font-family: "Josefin Sans", sans-serif;
+}

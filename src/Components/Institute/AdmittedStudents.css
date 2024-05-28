@@ -1,0 +1,144 @@
+.student-table{
+    padding: 5px;
+    margin-top: 30px;
+}
+
+.student-table .table-responsive-xl{
+    padding: 10px;
+    border: 2px solid grey;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.student-table-table{
+    padding: 30px;
+    text-align: center;
+}
+
+.student-table-table thead{
+    color: white;
+    background-image: linear-gradient(to right, rgb(202, 0, 0), rgb(114, 0, 0));
+    text-align: center;
+}
+
+.table-responsive-xl::-webkit-scrollbar{
+    border-radius: 20px;
+    background-color: white;
+}
+
+.table-responsive-xl::-webkit-scrollbar-thumb{
+    background-image: linear-gradient(180deg, rgb(202, 0, 0), rgb(114, 0, 0)) !important;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-select-entry{
+    margin-top: 10px;
+}
+
+.add-payment{
+    margin-top: 35px;
+}
+
+.buttoned{
+    display: flex;
+    padding-left: 10px;
+}
+
+.buttoned-2{
+    display: flex;
+    justify-content: center;
+}
+
+.buttoned button, .buttoned-2 button{
+    border: 1px solid rgb(220, 0, 0);
+    background-color: transparent;
+    color: rgb(220, 0, 0);
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+.buttoned button:hover, .buttoned-2 button:hover{
+    color: white;
+    background-color: rgb(220, 0, 0);
+}
+
+.buttoned button:last-child, .buttoned-2 button:last-child{
+    margin-left: 15px;
+}
+
+.buttoned button:focus, .buttoned-2 button:focus{
+    outline: 0;
+}
+
+.add-data-from{
+    text-align: center;
+}
+
+.add-data-from h4{
+    margin-bottom: 25px;
+    font-family: "Merriweather", serif;
+    color: rgb(220, 0, 0);
+}
+
+.add-popup{
+    overflow: scroll;
+}
+
+.form-group-6 .form-group-6-input{
+    padding-left: 35px;
+}
+
+.form-group-6 .form-group-6-select{
+    width: 100%;
+    padding: 5px 0px;
+    padding-left: 30px;
+    border: 1px solid rgba(128, 128, 128, 0.411);
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.form-group-6 .form-group-6-select:focus{
+    outline: 3px solid rgba(58, 133, 194, 0.411);
+}
+
+.form-group-6-options{
+    margin-bottom: 17px;
+}
+
+.btn-action{
+    padding: 0;
+}
+
+.btn-action ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-action ul li{
+    padding: 0;
+    margin: 0;
+}
+
+.btn-action ul li a{
+    cursor: pointer;
+    padding: 5px;
+    margin: 0;
+}
+
+.btn-action ul li:hover{
+    color: blue;
+}
+
+@media screen and (max-width: 425px) {
+    .buttoned{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .buttoned button:last-child{
+        margin: 0;
+        margin-top: 10px;
+    }
+}
