@@ -26,14 +26,14 @@ function Navebar() {
     const [ paymentNav, setPaymentNav ] = useState('') 
 
     useEffect(() => {
-        if(pathname == 'http://localhost:3000/'){
+        if(pathname == `${process.env.REACT_APP_FRONTEND_URL}/`){
             setHomeNav('nav-item-active')
             setCapacityNav('')
             setMeritNav('')
             setResultNav('')
             setPaymentNav('')
         }
-        else if(pathname == 'http://localhost:3000/intake-capacity'){
+        else if(pathname == `${process.env.REACT_APP_FRONTEND_URL}/intake-capacity`){
             setHomeNav('')
             setCapacityNav('nav-item-active')
             setMeritNav('')
@@ -41,7 +41,7 @@ function Navebar() {
             setPaymentNav('')
         }
 
-        else if(pathname == 'http://localhost:3000/merit-list'){
+        else if(pathname == `${process.env.REACT_APP_FRONTEND_URL}/merit-list`){
             setHomeNav('')
             setCapacityNav('')
             setCapacityNav('')
@@ -50,7 +50,7 @@ function Navebar() {
             setPaymentNav('')
         }
 
-        else if(pathname == 'http://localhost:3000/know-your-result'){
+        else if(pathname == `${process.env.REACT_APP_FRONTEND_URL}/know-your-result`){
             setHomeNav('')
             setCapacityNav('')
             setMeritNav('')
@@ -58,7 +58,7 @@ function Navebar() {
             setPaymentNav('')
         }
 
-        else if(pathname == 'http://localhost:3000/view-payment-status'){
+        else if(pathname == `${process.env.REACT_APP_FRONTEND_URL}/view-payment-status`){
             setHomeNav('')
             setCapacityNav('')
             setMeritNav('')
@@ -226,14 +226,14 @@ function Navebar() {
 
     useEffect(() => {
         axios
-            .post(`http://localhost:8080/admin/search`, { username: loginData.username })
+            .post(`${process.env.REACT_APP_BACKEND_URL}/admin/search`, { username: loginData.username })
             .then(({ data }) => {
                 if(data == null || data == undefined || data == []){
                     setValid(false)
                 }
                 else{
                     axios
-                        .post(`http://localhost:8080/admin/login`, loginData)
+                        .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, loginData)
                         .then(({ data }) => {
                             if(data == 'Invalid') setValid(false)
                             else if(data == 'Valid') setValid(true)
@@ -422,7 +422,7 @@ function Navebar() {
                             <Nav className='me-auto instiNav' id='responsive-navbar-nav'>
                                 <NavDropdown title={<a><i class="fa-solid fa-user"></i></a>} id='collapsible-nav-dropdown' className='instiNavDrop' onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} show={show} alignRight menuVariant="dark">
                                         <NavDropdown.Item className='dropdownAcc'>Settings</NavDropdown.Item>
-                                        <NavDropdown.Item className='dropdownAcc'>Log Out</NavDropdown.Item>
+                                        <NavDropdown.Item className='dropdownAcc' onClick={e => {e.preventDefault(); cookies.remove('username', { path: '/' }); cookies.remove('password', { path: '/' }); navigate('/')}}>Log Out</NavDropdown.Item>
                                     </NavDropdown>
                                 {/* <Nav.Item>
                                     <a><i class="fa-solid fa-user"></i></a>

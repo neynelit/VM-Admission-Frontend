@@ -12,7 +12,7 @@ function Home() {
   
   useEffect(() => {
     axios
-      .get('http://localhost:8080/openclose')
+      .get(`${process.env.REACT_APP_BACKEND_URL}/openclose`)
       .then(res => setOpenClose((res.data)))
       .catch(err => console.log(err))
   }, [1000])

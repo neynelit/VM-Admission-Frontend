@@ -11,7 +11,7 @@ function IntakeCapacity() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/subjects`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/subjects`)
       .then((res) => setEntryData(res.data))
       .catch(err => console.log(err))
   })

@@ -23,7 +23,7 @@ function FeesManagement() {
 
         else{
             axios
-                .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
                 .then(res => {
                         if(res.data == 'Valid') console.log('Valid')
                         else navigate('/')
@@ -39,7 +39,7 @@ function FeesManagement() {
 
     useEffect(() => {
         axios
-            .post('http://localhost:8080/admin/search', { username: username })
+            .post(`${process.env.REACT_APP_BACKEND_URL}/admin/search`, { username: username })
             .then(res => setPermit(res.data.access))
             .catch(err => console.log(err))
     }, [])
@@ -73,12 +73,12 @@ function FeesManagement() {
         else if(Math.ceil(subjects2.length/entriesNum) == 0) setPageCount(1)
 
         axios
-            .get(`http://localhost:8080/subjects`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/subjects`)
             .then(res => setSubjects(res.data))
             .catch(err => console.log(err))
 
         axios
-            .get(`http://localhost:8080/openclose`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/openclose`)
             .then(res => setOpenclose(res.data))
             .catch(err => console.log(err))
     })
@@ -113,7 +113,7 @@ function FeesManagement() {
 
     const deleteSubject = (id) => {
         axios
-            .delete(`http://localhost:8080/delete-subject/${id}`)
+            .delete(`${process.env.REACT_APP_BACKEND_URL}/delete-subject/${id}`)
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }
@@ -132,6 +132,130 @@ function FeesManagement() {
                     <p>Email to: <a href='mailto:developer@gnextit.com'>developer@gnextit.com</a> / <a href='mailto:info@gnextit.com'>info@gnextit.com</a> / <a href='mailto:conplaint@gnextit.com'>conplaint@gnextit.com</a></p>
 
                     <p>Talk to: 8017010592 / 9734103591</p>
+                </div>
+            </Col>
+
+            <Col sm='12' className='add-payment'>
+                <div className='buttoned'>
+                    {/* <Popup trigger={<button><i class="fa-solid fa-plus"></i> Add Student</button>} modal nested contentStyle={popupStyle4()}>
+                        {
+                            close => (
+                                <Container className='add-popup'>
+                                    <Row>
+                                        <Col sm='12' className='d-flex justify-content-end'>
+                                            <button className='close-btn' onClick={() => close()}><i class="fa-solid fa-xmark"></i></button>
+                                        </Col>
+
+                                        <Col sm='12' className='add-data-from'>
+                                            <h4>Add Student</h4>
+
+                                            <form>
+                                                <div className='form-group-6'>
+                                                    <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='name' placeholder={`Student's Full Name`} onChange={updateNewStudentData} />
+                                                    <i class="fa-solid fa-user icon-align"></i>
+                                                </div>
+
+                                                
+                                                <div className='form-group-6'>
+                                                    <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='registration_no' placeholder={`Student's Registration Number`} onChange={updateNewStudentData} />
+                                                    <i class="fa-solid fa-hashtag icon-align"></i>
+                                                </div>
+
+                                                
+                                                <div className='form-group-6'>
+                                                    <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='father_name' placeholder={`Student's Father's Name`} onChange={updateNewStudentData} />
+                                                    <i class="fa-solid fa-user icon-align"></i>
+                                                </div>
+                                                
+                                                <div className='form-group-6'>
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='mobile' placeholder={`Mobile No`} onChange={updateNewStudentData} />
+                                                    <i class="fa-solid fa-envelope icon-align"></i>
+                                                </div>
+                                                
+                                                <div className='form-group-6'>
+                                                    <input type='email' className='form-control my-3 form-group-6-input' autoFocus required name='email' placeholder={`Email Id`} onChange={updateNewStudentData} />
+                                                    <i class="fa-solid fa-phone icon-align"></i>
+                                                </div>
+                                                
+                                                <div className='form-group-6 form-group-6-options'>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='session' onChange={updateNewStudentData} >
+                                                        <option selected hidden value='2024-2028'>Select Student's Session</option>
+                                                        <option value='2024-2028'>2024-2028</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <div className='form-group-6 form-group-6-options'>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='course' onChange={updateNewStudentData} >
+                                                        <option selected hidden value=''>Select Student's Course</option>
+                                                        {
+                                                            subjects2 && subjects2.map((item, index) => {
+                                                                return(
+                                                                    <option value={item.subject}>{item.subject}</option>
+                                                                )
+                                                            })
+                                                        }
+                                                    </select>
+                                                </div>
+                                                
+                                                <div className='form-group-6 form-group-6-options'>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='year' onChange={updateNewStudentData} >
+                                                        <option selected hidden value='2024-2028'>Select Student's Year/Semester</option>
+                                                        <option value='1st Semester'>1st Semester</option>
+                                                        <option value='2nd Semester'>2nd Semester</option>
+                                                        <option value='3rd Semester'>3rd Semester</option>
+                                                        <option value='4th Semester'>4th Semester</option>
+                                                    </select>
+                                                </div>
+
+                                                <div className='form-group-6 form-group-6-options'>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='gender' onChange={updateNewStudentData} >
+                                                        <option selected hidden value='2024-2028'>Select Student's Gender</option>
+                                                        <option value='Male'>Male</option>
+                                                        <option value='Female'>Female</option>
+                                                        <option value='Others'>Others</option>
+                                                    </select>
+                                                </div>
+
+                                                <div className='form-group-6 form-group-6-options'>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='category' onChange={updateNewStudentData} >
+                                                        <option selected hidden value='2024-2028'>Select Student's Category</option>
+                                                        <option value='General'>General</option>
+                                                        <option value='OBC-A'>OBC-A</option>
+                                                        <option value='OBC-B'>OBC-B</option>
+                                                        <option value='SC'>SC</option>
+                                                        <option value='ST'>ST</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <div className='form-group-6'>
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='amount' placeholder={`Student's Fees Amount`} onChange={updateNewStudentData} />
+                                                    <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
+                                                </div>
+
+                                                <div className='buttoned-2'>
+                                                    <button className='btn' onClick={e => {
+                                                        e.preventDefault()
+                                                        axios
+                                                            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, newStudent)
+                                                            .then(() => {
+                                                                alert('Student Added')
+                                                                close()
+                                                            })
+                                                            .catch(err => {
+                                                                alert('Student Not Added')
+                                                                close()
+                                                            })
+                                                    }}>Add</button>
+                                                    <button className='btn' onClick={e => {e.preventDefault();close();}}>Exit</button>
+                                                </div>
+                                            </form>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                            )
+                        }
+                    </Popup> */}
+                    {/* <button><i class="fa-regular fa-pen-to-square"></i> Update payment</button> */}
                 </div>
             </Col>
 

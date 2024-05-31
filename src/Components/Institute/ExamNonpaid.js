@@ -22,7 +22,7 @@ function ExamNonpaid() {
 
         else{
             axios
-                .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
                 .then(res => {
                         if(res.data == 'Valid') console.log('Valid')
                         else navigate('/')

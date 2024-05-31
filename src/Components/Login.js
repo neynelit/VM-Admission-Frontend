@@ -40,7 +40,7 @@ function Login() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/subjects`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/subjects`)
             .then(res => setSubjects(res.data))
             .catch(err => console.log(err))
     }, [])
@@ -68,7 +68,7 @@ function Login() {
 
     useEffect(() => {
         axios
-            .post(`http://localhost:8080/single-student`, data)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/single-student`, data)
             .then(res => setResult(res.data[0]))
             .catch(err => console.log(err))
     }, [data])

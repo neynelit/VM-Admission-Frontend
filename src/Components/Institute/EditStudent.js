@@ -22,7 +22,7 @@ function EditStudent() {
 
     else{
       axios
-        .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+        .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
         .then(res => {
             if(res.data == 'Valid') console.log('Valid')
             else navigate('/')
@@ -49,7 +49,7 @@ function EditStudent() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/subjects`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/subjects`)
       .then(res => setSubjects(res.data))
       .catch(err => console.log(err))
     }, [])
@@ -74,7 +74,7 @@ function EditStudent() {
 
     const updateStudent = () => {
       axios
-      .patch(`http://localhost:8080/update-student/${data._id}`, data2)
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${data._id}`, data2)
       .then(() => console.log('Done'))
       .catch(err => console.log(err))
     }

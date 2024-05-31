@@ -52,7 +52,7 @@ function StudentsEdit() {
     const submitApplication = e => {
         e.preventDefault()
         axios
-            .patch(`http://localhost:8080/update-student/${data._id}`, data)
+            .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${data._id}`, data)
             .then(res => {
                 navigate(`/student-details-review/${data.registration_no}`, { state: data })
             })

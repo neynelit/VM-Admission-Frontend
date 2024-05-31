@@ -22,7 +22,7 @@ function NonadmittedStudent() {
 
         else{
             axios
-                .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
                 .then(res => {
                         if(res.data == 'Valid') console.log('Valid')
                         else navigate('/')
@@ -57,7 +57,7 @@ function NonadmittedStudent() {
         else if(Math.ceil(studentsList2.length/entriesNum) == 0) setPageCount(1)
 
         axios
-            .post(`http://localhost:8080/find-student`, { field: 'admission_status', value: 'false' })
+            .post(`${process.env.REACT_APP_BACKEND_URL}/find-student`, { field: 'admission_status', value: 'false' })
             .then((res) => setStudentsList(res.data))
             .catch(err => console.log(err))
     }, [page, entriesNum, studentsList, studentsList2])

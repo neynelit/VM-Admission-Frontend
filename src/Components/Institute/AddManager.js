@@ -7,6 +7,7 @@ import Popup from 'reactjs-popup'
 import { useNavigate } from 'react-router'
 import Cookies from 'universal-cookie'
 
+
 const cookies = new Cookies()
 
 function AddManager() {
@@ -23,7 +24,7 @@ function AddManager() {
 
         else{
             axios
-                .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
                 .then(res => {
                         if(res.data == 'Valid') console.log('Valid')
                         else navigate('/')
@@ -39,7 +40,7 @@ function AddManager() {
 
     useEffect(() => {
         axios
-            .post('http://localhost:8080/admin/search', { username: username })
+            .post(`${process.env.REACT_APP_BACKEND_URL}/admin/search`, { username: username })
             .then(res => setPermit(res.data.access))
             .catch(err => console.log(err))
     }, [])
@@ -70,7 +71,7 @@ function AddManager() {
         else if(Math.ceil(managers2.length/entriesNum) == 0) setPageCount(1)
 
         axios
-            .get(`http://localhost:8080/admin/all`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/admin/all`)
             .then(res => setManagers(res.data))
             .catch(err => console.log(err))
     }, [page, entriesNum, managers, managers2])
@@ -110,7 +111,7 @@ function AddManager() {
 
     const deleteManager = (id) => {
         axios
-            .delete(`http://localhost:8080/admin/delete/${id}`)
+            .delete(`${process.env.REACT_APP_BACKEND_URL}/admin/delete/${id}`)
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }

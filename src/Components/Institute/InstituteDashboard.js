@@ -11,6 +11,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 import axios from 'axios'
 
+
 ChartJS.register(
   ArcElement, Tooltip, Legend
 )
@@ -31,7 +32,7 @@ function InstituteDashboard() {
 
     else{
       axios
-        .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+        .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
         .then(res => {
           if(res.data == 'Valid') console.log('Valid')
           else navigate('/')

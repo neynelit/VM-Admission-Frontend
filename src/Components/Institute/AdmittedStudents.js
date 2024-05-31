@@ -24,7 +24,7 @@ function AdmittedStudents() {
         else{
             //console.log( { username: cookies.get('username'), password: cookies.get('password')});
             axios
-                .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
                 .then(res => {
                         if(res.data == 'Valid') console.log('Valid')
                         else navigate('/')
@@ -71,14 +71,14 @@ function AdmittedStudents() {
         else if(Math.ceil(studentsList2.length/entriesNum) == 0) setPageCount(1)
 
         axios
-            .get(`http://localhost:8080/subjects`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/subjects`)
             .then((res) => setSubjects(res.data))
             .catch(err => console.log(err))
     }, [page, entriesNum, studentsList2, studentsList])
 
     useEffect(() => {
         axios
-            .post(`http://localhost:8080/find-student`, { field: 'admission_status', value: 'true' })
+            .post(`${process.env.REACT_APP_BACKEND_URL}/find-student`, { field: 'admission_status', value: 'true' })
             .then((res) => setStudentsList(res.data))
             .catch(err => console.log(err))
     }, [])
@@ -129,7 +129,7 @@ function AdmittedStudents() {
     useEffect(() => {
         if(studentData.name !== '' & studentData.mobile !== ''){
             axios
-                .post(`http://localhost:8080/check-student`, { name: studentData.name, mobile: studentData.mobile })
+                .post(`${process.env.REACT_APP_BACKEND_URL}/check-student`, { name: studentData.name, mobile: studentData.mobile })
                 .then(res => {
                     if(res) setExists(true)
                     else setExists(false)
@@ -141,7 +141,7 @@ function AdmittedStudents() {
     const addStudent = (e, close) => {
         e.preventDefault()
         axios
-            .post(`http://localhost:8080/add-student`, studentData)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, studentData)
             .then(() => {
                 alert('Student Added')
                 close()
@@ -274,7 +274,7 @@ function AdmittedStudents() {
                                                     <button className='btn' onClick={e => {
                                                         e.preventDefault()
                                                         axios
-                                                            .post(`http://localhost:8080/add-student`, studentData)
+                                                            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, studentData)
                                                             .then(() => {
                                                                 alert('Student Added')
                                                                 close()

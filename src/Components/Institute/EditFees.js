@@ -22,7 +22,7 @@ function EditFees() {
     
         else{
             axios
-            .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+            .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
             .then(res => {
                     if(res.data == 'Valid') console.log('Valid')
                     else navigate('/')
@@ -51,7 +51,7 @@ function EditFees() {
 
     const updateFeesDetails = (id) => {
         axios
-            .patch(`http://localhost:8080/update-subject/${id}`, data2)
+            .patch(`${process.env.REACT_APP_BACKEND_URL}/update-subject/${id}`, data2)
             .then(res => console.log('Done'))
             .catch(err => console.log(err))
     }

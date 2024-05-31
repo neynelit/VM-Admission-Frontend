@@ -22,7 +22,7 @@ function OpenClose() {
 
         else{
             axios
-                .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
                 .then(res => {
                         if(res.data == 'Valid') console.log('Valid')
                         else navigate('/')
@@ -57,7 +57,7 @@ function OpenClose() {
         else if(Math.ceil(openclose2.length/entriesNum) == 0) setPageCount(1)
 
         axios
-            .get(`http://localhost:8080/openclose`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/openclose`)
             .then(res => setOpenclose(res.data))
             .catch(err => console.log(err))
     })
@@ -106,7 +106,7 @@ function OpenClose() {
 
     const updateAllSubject = (type, courseType, semester, status) => {
         axios
-            .patch(`http://localhost:8080/update-all-subjects`, { type: type, courseType: courseType, semester: semester, status: !status })
+            .patch(`${process.env.REACT_APP_BACKEND_URL}/update-all-subjects`, { type: type, courseType: courseType, semester: semester, status: !status })
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }
@@ -114,13 +114,13 @@ function OpenClose() {
     const updateStatus = (item) => {
         if(item.status == false){
             axios
-                .patch(`http://localhost:8080/update-openclose/${item._id}`, { status: 'true', date: Date.now})
+                .patch(`${process.env.REACT_APP_BACKEND_URL}/update-openclose/${item._id}`, { status: 'true', date: Date.now})
                 .then(() => updateAllSubject(item.type, item.programme, item.semester, item.status))
                 .catch(err => console.log(err))
         }
         else if(item.status == true){
             axios
-                .patch(`http://localhost:8080/update-openclose/${item._id}`, { status: 'false'})
+                .patch(`${process.env.REACT_APP_BACKEND_URL}/update-openclose/${item._id}`, { status: 'false'})
                 .then(() => updateAllSubject(item.type, item.programme, item.semester, item.status))
                 .catch(err => console.log(err))
         }

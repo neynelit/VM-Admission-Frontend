@@ -21,7 +21,7 @@ function SabpaisaStatus() {
 
   useEffect(() => {
       axios
-          .post(`http://localhost:8080/check-student`, { name: payerName, mobile: payerMobile })
+          .post(`${process.env.REACT_APP_BACKEND_URL}/check-student`, { name: payerName, mobile: payerMobile })
           .then(res => setData(res.data))
           .catch(err => console.log(err))
   }, [])
@@ -32,7 +32,7 @@ function SabpaisaStatus() {
 
   const updateAdmStatus = (status) => {
     axios
-      .patch(`http://localhost:8080/update-student/${data._id}`, { admission_status: status, date: Date.now()})
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${data._id}`, { admission_status: status, date: Date.now()})
       .then(() => console.log('Status updated'))
       .catch(err => console.log(err))
   }
@@ -52,13 +52,13 @@ function SabpaisaStatus() {
 
   const nextPageLink = () => {
     if(status == 'SUCCESS') navigate(`/payment-slip/${data.registration_no}`)
-    else if(status == 'FAILED') window.location.href='http://localhost:3000/login'
+    else if(status == 'FAILED') window.location.href=`${process.env.REACT_APP_FRONTEND_URL}/login`
   }
 
   useEffect(() => {
     setTimeout(() => {
       if(status == 'SUCCESS') navigate(`/payment-slip/${data.registration_no}`)
-      else if(status == 'FAILED') window.location.href='http://localhost:3000/login'
+      else if(status == 'FAILED') window.location.href=`${process.env.REACT_APP_FRONTEND_URL}/login`
     }, 10000);
   })
 

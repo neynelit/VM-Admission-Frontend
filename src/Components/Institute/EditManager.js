@@ -22,7 +22,7 @@ function EditManager() {
 
         else{
             axios
-                .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
                 .then(res => {
                         if(res.data == 'Valid') console.log('Valid')
                         else navigate('/')
@@ -55,7 +55,7 @@ function EditManager() {
     useEffect(() => {
         if(data2.username != ''){
             axios
-                .post('http://localhost:8080/admin/search-by', { 'field': 'username', 'value': data2.username })
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/search-by`, { 'field': 'username', 'value': data2.username })
                 .then(res => {
                     if(res == [] || res == null || res == undefined){
                         setCheck(true)
@@ -68,7 +68,7 @@ function EditManager() {
     useEffect(() => {
         if(data2.email != ''){
             axios
-                .post('http://localhost:8080/admin/search-by', { 'field': 'email', 'value': data2.email })
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/search-by`, { 'field': 'email', 'value': data2.email })
                 .then(res => {
                     if(res == [] || res == null || res == undefined){
                         setCheck(true)
@@ -81,7 +81,7 @@ function EditManager() {
     useEffect(() => {
         if(data2.mobile != ''){
             axios
-                .post('http://localhost:8080/admin/search-by', { 'field': 'mobile', 'value': data2.mobile })
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/search-by`, { 'field': 'mobile', 'value': data2.mobile })
                 .then(res => {
                     if(res == [] || res == null || res == undefined){
                         setCheck(true)
@@ -98,7 +98,7 @@ function EditManager() {
 
         else if(check == false){
             axios
-                .patch(`http://localhost:8080/admin/update/${data._id}`)
+                .patch(`${process.env.REACT_APP_BACKEND_URL}/admin/update/${data._id}`)
                 .then(() => navigate('/institute/add-manager'))
                 .catch(err => console.log(err))
         }

@@ -24,7 +24,7 @@ function ManageStudent() {
 
         else{
             axios
-                .post('http://localhost:8080/admin/login', { username: cookies.get('username'), password: cookies.get('password')})
+                .post(`${process.env.REACT_APP_BACKEND_URL}/admin/login`, { username: cookies.get('username'), password: cookies.get('password')})
                 .then(res => {
                         if(res.data == 'Valid') console.log('Valid')
                         else navigate('/')
@@ -39,7 +39,7 @@ function ManageStudent() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/students`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/students`)
             .then(res => setStudentsList(res.data))
             .catch(err => console.log(err))
     })
@@ -52,7 +52,7 @@ function ManageStudent() {
 
     useEffect(() => {
         axios
-            .post('http://localhost:8080/admin/search', { username: username })
+            .post(`${process.env.REACT_APP_BACKEND_URL}/admin/search`, { username: username })
             .then(res => setPermit(res.data.access))
             .catch(err => console.log(err))
     }, [])
@@ -119,7 +119,7 @@ function ManageStudent() {
 
     const deleteStudent = (id) => {
         axios
-            .delete(`http://localhost:8080/delete-student/${id}`)
+            .delete(`${process.env.REACT_APP_BACKEND_URL}/delete-student/${id}`)
             .then(res => alert('Student Deleted'))
             .catch(err => alert('Student Not Deleted'))
     }
@@ -150,7 +150,7 @@ function ManageStudent() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/subjects`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/subjects`)
             .then(res => setSubjects(res.data))
             .catch(err => console.log(err))
     }, [])
@@ -241,7 +241,7 @@ function ManageStudent() {
                                                     <button className='btn' onClick={e => {
                                                         e.preventDefault()
                                                         axios
-                                                            .post(`http://localhost:8080/add-multiple-students`, { data : jsonData })
+                                                            .post(`${process.env.REACT_APP_BACKEND_URL}/add-multiple-students`, { data : jsonData })
                                                             .then(() => {
                                                                 alert('Students Added')
                                                                 close()
@@ -362,7 +362,7 @@ function ManageStudent() {
                                                     <button className='btn' onClick={e => {
                                                         e.preventDefault()
                                                         axios
-                                                            .post(`http://localhost:8080/add-student`, newStudent)
+                                                            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, newStudent)
                                                             .then(() => {
                                                                 alert('Student Added')
                                                                 close()
