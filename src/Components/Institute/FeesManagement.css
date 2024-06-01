@@ -1,0 +1,32 @@
+.inner-table{
+    border: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+.inner-table .table{
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.inner-table .table thead{
+    background-image: none !important;
+    color: rgb(202, 0, 0) !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background-color: rgba(235, 235, 235, 0.8);
+}
+
+.inner-table .table th{
+    padding: 0px 5px;
+    min-width: 100px;
+}
+
+.inner-table .table td{
+    padding: 5px 5px;
+    min-width: 100px;
+}

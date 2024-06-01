@@ -1,0 +1,61 @@
+.login-form-6-col-2{
+    align-items: center;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.login-form-6-2{
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgb(167, 0, 0);
+    margin: auto;
+    padding: 10px;
+    margin-top: 25px;
+    outline: 5px solid rgb(247, 201, 35);
+    border-radius: 10px;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.inner-table-2{
+    border: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.inner-table-2 .table{
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.inner-table-2 .table thead{
+    background-image: none !important;
+    color: rgb(202, 0, 0) !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.inner-table-2 .table tbody{
+    background-image: none !important;
+    color: rgb(202, 0, 0) !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.inner-table-2 .table th{
+    padding: 0px 5px;
+    min-width: 100px;
+}
+
+.inner-table-2 .table td{
+    padding: 5px 5px;
+    min-width: 100px;
+}

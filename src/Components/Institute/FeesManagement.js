@@ -46,10 +46,10 @@ function FeesManagement() {
 
     const [ subjects, setSubjects ] = useState([])
     const [ subjects2, setSubjects2 ] = useState(subjects)
-    console.log(subjects2);
+    //console.log(subjects2);
 
     const [ openclose, setOpenclose ] = useState([])
-    console.log(openclose);
+    //console.log(openclose);
     
     const [ entriesNum, setEntriesNum ] = useState(10)
 
@@ -71,17 +71,19 @@ function FeesManagement() {
 
         if(Math.ceil(subjects2.length/entriesNum) !== 0) setPageCount(Math.ceil(subjects2.length/entriesNum))
         else if(Math.ceil(subjects2.length/entriesNum) == 0) setPageCount(1)
+    }, [ entriesNum, page])
 
+    useEffect(() => {
         axios
             .get(`${process.env.REACT_APP_BACKEND_URL}/subjects`)
-            .then(res => setSubjects(res.data))
+            .then(res => {setSubjects(res.data);setSubjects2(res.data)})
             .catch(err => console.log(err))
 
         axios
             .get(`${process.env.REACT_APP_BACKEND_URL}/openclose`)
             .then(res => setOpenclose(res.data))
             .catch(err => console.log(err))
-    })
+    }, [])
 
     const entryMaxLength = () => {
         if(maxAmount <= subjects2.length) return `${maxAmount}`
@@ -102,12 +104,12 @@ function FeesManagement() {
     })
 
     const [ searchItem, setSearchItem ] = useState('')
-    console.log(searchItem);
+    //console.log(searchItem);
 
     useEffect(() => {
         if(searchItem == '') setSubjects2(subjects)
         if(searchItem !== '') setSubjects2([])
-    })
+    }, [ searchItem ])
 
     const [ flip, setFlip ] = useState('')
 
@@ -116,6 +118,93 @@ function FeesManagement() {
             .delete(`${process.env.REACT_APP_BACKEND_URL}/delete-subject/${id}`)
             .then(res => console.log(res))
             .catch(err => console.log(err))
+    }
+
+    const [ newSubject, setNewSubject ] = useState([])
+    console.log(newSubject);
+
+    const updateNewSubjectData = e => {
+        setNewSubject({
+            ...newSubject,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const [ subjectAmount, setSubjectAmount ] = useState([])
+    console.log(subjectAmount);
+
+    const updateSubjectAmount = e => {
+        setSubjectAmount({
+            ...subjectAmount,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const [ amountData, setAmountData ] = useState([])
+    console.log(amountData);
+
+    const [ selectDisable, setSelectDisable ] = useState(true)
+
+    useEffect(() => {
+        if(newSubject.subject == '' || newSubject.subject == [] || newSubject.subject == null || newSubject.subject == undefined){
+            setSelectDisable(true)
+        }
+
+        else if(newSubject.courseType == '' || newSubject.courseType == [] || newSubject.courseType == null || newSubject.courseType == undefined){
+            setSelectDisable(true)
+        }
+        
+        else if(subjectAmount.semester == '' || subjectAmount.semester == [] || subjectAmount.semester == null || subjectAmount.semester == undefined){
+            setSelectDisable(true)
+        }
+
+        else setSelectDisable(false)
+    }, [ newSubject.subject, newSubject.courseType, subjectAmount.semester ])
+
+    useEffect(() => {
+        if(newSubject.subject !== '' || newSubject.subject != [] || newSubject.subject !== null || newSubject.subject !== undefined){
+            const onlySubject = subjects.filter((item) => {
+                if(item.subject == newSubject.subject) {
+                    setNewSubject(item);
+                    setAmountData(item.amount)
+                }
+            })
+        }
+    }, [ newSubject.subject, subjects ])
+
+    const [ canProceed, setCanProceed ] = useState(true)
+    console.log(canProceed);
+
+    useEffect(() => {
+        if(newSubject.amount !== '' || newSubject.amount != [] || newSubject.amount !== null || newSubject.amount !== undefined){
+            const onlyAmount = amountData.filter((item) => {
+                if(item.semester == subjectAmount.semester){
+                    setCanProceed(false)
+                }
+                else if(item.semester !== subjectAmount.semester) setCanProceed(true)
+            })
+        }
+        else setCanProceed(true)
+    }, [newSubject.amount, amountData, subjectAmount.semester])
+
+    const updateDatabseAmount = (data) => {
+        axios
+            .patch(`${process.env.REACT_APP_BACKEND_URL}/update-subject/${newSubject._id}`, { amount: data })
+            .then(res => alert('Fess are added'))
+            .catch(err => console.log(err))
+    }
+    
+    const submit = () => {
+        if(canProceed == false) alert(`${subjectAmount.semester} fees are already added! Please update the data if you want to.`)
+        
+        else{
+            const data = amountData.push(subjectAmount)
+            updateDatabseAmount(amountData)
+            setNewSubject([])
+            setSubjectAmount([])
+            setAmountData([])
+            setCanProceed(true)
+        }
     }
   return (
     <Container fluid>
@@ -137,60 +226,26 @@ function FeesManagement() {
 
             <Col sm='12' className='add-payment'>
                 <div className='buttoned'>
-                    {/* <Popup trigger={<button><i class="fa-solid fa-plus"></i> Add Student</button>} modal nested contentStyle={popupStyle4()}>
+                    <Popup trigger={<button><i class="fa-solid fa-plus"></i> Add Subject</button>} modal nested contentStyle={popupStyle6()}>
                         {
                             close => (
                                 <Container className='add-popup'>
                                     <Row>
                                         <Col sm='12' className='d-flex justify-content-end'>
-                                            <button className='close-btn' onClick={() => close()}><i class="fa-solid fa-xmark"></i></button>
+                                            <button className='close-btn' onClick={() => {close(); setNewSubject([]); setSubjectAmount([]); setAmountData([]); setCanProceed(true)}}><i class="fa-solid fa-xmark"></i></button>
                                         </Col>
 
                                         <Col sm='12' className='add-data-from'>
                                             <h4>Add Student</h4>
 
-                                            <form>
-                                                <div className='form-group-6'>
-                                                    <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='name' placeholder={`Student's Full Name`} onChange={updateNewStudentData} />
-                                                    <i class="fa-solid fa-user icon-align"></i>
-                                                </div>
-
-                                                
-                                                <div className='form-group-6'>
-                                                    <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='registration_no' placeholder={`Student's Registration Number`} onChange={updateNewStudentData} />
-                                                    <i class="fa-solid fa-hashtag icon-align"></i>
-                                                </div>
-
-                                                
-                                                <div className='form-group-6'>
-                                                    <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='father_name' placeholder={`Student's Father's Name`} onChange={updateNewStudentData} />
-                                                    <i class="fa-solid fa-user icon-align"></i>
-                                                </div>
-                                                
-                                                <div className='form-group-6'>
-                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='mobile' placeholder={`Mobile No`} onChange={updateNewStudentData} />
-                                                    <i class="fa-solid fa-envelope icon-align"></i>
-                                                </div>
-                                                
-                                                <div className='form-group-6'>
-                                                    <input type='email' className='form-control my-3 form-group-6-input' autoFocus required name='email' placeholder={`Email Id`} onChange={updateNewStudentData} />
-                                                    <i class="fa-solid fa-phone icon-align"></i>
-                                                </div>
-                                                
+                                            <form onSubmit={e => {e.preventDefault(); submit(); close()}}>
                                                 <div className='form-group-6 form-group-6-options'>
-                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='session' onChange={updateNewStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Session</option>
-                                                        <option value='2024-2028'>2024-2028</option>
-                                                    </select>
-                                                </div>
-                                                
-                                                <div className='form-group-6 form-group-6-options'>
-                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='course' onChange={updateNewStudentData} >
-                                                        <option selected hidden value=''>Select Student's Course</option>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='subject' onChange={updateNewSubjectData} >
+                                                        <option selected hidden value=''>Select Subject</option>
                                                         {
-                                                            subjects2 && subjects2.map((item, index) => {
+                                                            subjects?.map((item, index) => {
                                                                 return(
-                                                                    <option value={item.subject}>{item.subject}</option>
+                                                                    <option value={item.subject} key={index}>{item.subject}</option>
                                                                 )
                                                             })
                                                         }
@@ -198,55 +253,65 @@ function FeesManagement() {
                                                 </div>
                                                 
                                                 <div className='form-group-6 form-group-6-options'>
-                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='year' onChange={updateNewStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Year/Semester</option>
-                                                        <option value='1st Semester'>1st Semester</option>
-                                                        <option value='2nd Semester'>2nd Semester</option>
-                                                        <option value='3rd Semester'>3rd Semester</option>
-                                                        <option value='4th Semester'>4th Semester</option>
-                                                    </select>
-                                                </div>
-
-                                                <div className='form-group-6 form-group-6-options'>
-                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='gender' onChange={updateNewStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Gender</option>
-                                                        <option value='Male'>Male</option>
-                                                        <option value='Female'>Female</option>
-                                                        <option value='Others'>Others</option>
-                                                    </select>
-                                                </div>
-
-                                                <div className='form-group-6 form-group-6-options'>
-                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='category' onChange={updateNewStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Category</option>
-                                                        <option value='General'>General</option>
-                                                        <option value='OBC-A'>OBC-A</option>
-                                                        <option value='OBC-B'>OBC-B</option>
-                                                        <option value='SC'>SC</option>
-                                                        <option value='ST'>ST</option>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='courseType' onChange={updateNewSubjectData} >
+                                                        <option selected hidden value=''>Select Course Type</option>
+                                                        <option value='UG'>UG</option>
                                                     </select>
                                                 </div>
                                                 
+                                                <div className='form-group-6 form-group-6-options'>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='semester' onChange={updateSubjectAmount} >
+                                                        <option selected hidden value=''>Select Semester</option>
+                                                        <option value='Semester 1'>Semester 1</option>
+                                                        <option value='Semester 2'>Semester 2</option>
+                                                        <option value='Semester 3'>Semester 3</option>
+                                                        <option value='Semester 4'>Semester 4</option>
+                                                        <option value='Semester 5'>Semester 5</option>
+                                                        <option value='Semester 6'>Semester 6</option>
+                                                        <option value='Semester 7'>Semester 7</option>
+                                                        <option value='Semester 8'>Semester 8</option>
+                                                        <option value='Part 3'>Part 3</option>
+                                                    </select>
+                                                </div>
+
                                                 <div className='form-group-6'>
-                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='amount' placeholder={`Student's Fees Amount`} onChange={updateNewStudentData} />
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='capacity' placeholder={`Set Course Capacity on this Semester`} onChange={updateSubjectAmount} disabled={selectDisable} />
+                                                    <i class="fa-solid fa-list-ol icon-align"></i>
+                                                </div>
+
+                                                <div className='form-group-6'>
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='bc_i' placeholder={`BC-I Students Fees Amount`} onChange={updateSubjectAmount} disabled={selectDisable} />
+                                                    <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
+                                                </div>
+
+                                                <div className='form-group-6'>
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='sc' placeholder={`SC Students Fees Amount`} onChange={updateSubjectAmount} disabled={selectDisable} />
+                                                    <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
+                                                </div>
+
+                                                <div className='form-group-6'>
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='st' placeholder={`ST Students Fees Amount`} onChange={updateSubjectAmount} disabled={selectDisable} />
+                                                    <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
+                                                </div>
+
+                                                <div className='form-group-6'>
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='girl' placeholder={`Girl Students Fees Amount`} onChange={updateSubjectAmount} disabled={selectDisable} />
+                                                    <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
+                                                </div>
+
+                                                <div className='form-group-6'>
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='general' placeholder={`General Students Fees Amount`} onChange={updateSubjectAmount} disabled={selectDisable} />
+                                                    <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
+                                                </div>
+
+                                                <div className='form-group-6'>
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='all_student' placeholder={`All Students Fees Amount`} onChange={updateSubjectAmount} disabled={selectDisable} />
                                                     <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
                                                 </div>
 
                                                 <div className='buttoned-2'>
-                                                    <button className='btn' onClick={e => {
-                                                        e.preventDefault()
-                                                        axios
-                                                            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, newStudent)
-                                                            .then(() => {
-                                                                alert('Student Added')
-                                                                close()
-                                                            })
-                                                            .catch(err => {
-                                                                alert('Student Not Added')
-                                                                close()
-                                                            })
-                                                    }}>Add</button>
-                                                    <button className='btn' onClick={e => {e.preventDefault();close();}}>Exit</button>
+                                                    <button className='btn'>Add</button>
+                                                    <button className='btn' onClick={e => {e.preventDefault(); close(); setNewSubject([]); setSubjectAmount([]); setAmountData([]); setCanProceed(true)}}>Exit</button>
                                                 </div>
                                             </form>
                                         </Col>
@@ -254,8 +319,7 @@ function FeesManagement() {
                                 </Container>
                             )
                         }
-                    </Popup> */}
-                    {/* <button><i class="fa-regular fa-pen-to-square"></i> Update payment</button> */}
+                    </Popup>
                 </div>
             </Col>
 
@@ -284,30 +348,58 @@ function FeesManagement() {
                     <table className='table student-table-table'>
                         <thead>
                             <tr>
+                                <th scope='col'>Course Type</th>
                                 <th scope='col'>Course Name</th>
-                                <th scope='col'>Gender</th>
-                                <th scope='col'>Category</th>
-                                <th scope='col'>Hons Subject</th>
                                 <th scope='col'>Course Fees</th>
                                 <th scope='col'>Fees For</th>
-                                <th scope='col'>Year/Semester</th>
                                 <th scope='col'>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {
-                                subjects2 && subjects2.map((item, index) => {
+                                subjects2?.map((item, index) => {
                                     if(index>=minAmount && index<maxAmount){
                                         return(
                                             <tr key={index}>
                                                 <td>{item.courseType}</td>
-                                                <td></td>
-                                                <td></td>
                                                 <td>{item.subject}</td>
-                                                <td>{item.amount}</td>
+                                                <td>
+                                                    <div className='table-responsive-xl inner-table'>
+                                                        <table className='table'>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope='col'>Semester</th>
+                                                                    <th scope='col'>Capacity</th>
+                                                                    <th scope='col'>General/BC-II</th>
+                                                                    <th scope='col'>BC-I</th>
+                                                                    <th scope='col'>SC</th>
+                                                                    <th scope='col'>ST</th>
+                                                                    <th scope='col'>Girls</th>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+                                                                {
+                                                                    item.amount?.map((item1, index1) => {
+                                                                        return(
+                                                                            <tr>
+                                                                                <td>{item1.semester}</td>
+                                                                                <td>{item1.capacity}</td>
+                                                                                <td>{item1.general}</td>
+                                                                                <td>{item1.bc_i}</td>
+                                                                                <td>{item1.sc}</td>
+                                                                                <td>{item1.st}</td>
+                                                                                <td>{item1.girls}</td>
+                                                                            </tr>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
                                                 <td>Admission</td>
-                                                <td>{item.semester}</td>
                                                 <td className='btn-act-parent'>
                                                     <button className='btn-act' onClick={e => {e.preventDefault(); navigate(`/institute/edit-fees/${item._id}`, {state: item })}} disabled={!permit}><i class="fa-solid fa-pen-to-square"></i></button>
                                                     <Popup trigger={<button className='btn-act' disabled={!permit}><i class="fa-solid fa-trash"></i></button>} modal nested contentStyle={popupStyle6()}>

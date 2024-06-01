@@ -37,12 +37,16 @@ function ManageStudent() {
     const [ studentsList3, setStudentsList3 ] = useState(studentsList)
     //console.log(studentsList3);
 
-    useEffect(() => {
+    const getStudentsList = () => {
         axios
             .get(`${process.env.REACT_APP_BACKEND_URL}/students`)
             .then(res => setStudentsList(res.data))
             .catch(err => console.log(err))
-    })
+    }
+
+    useEffect(() => {
+        getStudentsList()
+    }, [])
 
 
     const username = cookies.get('username')
@@ -113,14 +117,14 @@ function ManageStudent() {
     useEffect(() => {
         if(matches4) setDownloadDisplay({marginLeft: 0, marginTop: '12px'})
         else if(!matches4) setDownloadDisplay({marginLeft: '15px', marginTop: 0})
-    })
+    }, [matches4])
 
     const [ flip, setFlip ] = useState('')
 
     const deleteStudent = (id) => {
         axios
             .delete(`${process.env.REACT_APP_BACKEND_URL}/delete-student/${id}`)
-            .then(res => alert('Student Deleted'))
+            .then(res => {getStudentsList(); alert('Student Deleted')})
             .catch(err => alert('Student Not Deleted'))
     }
 
@@ -132,11 +136,107 @@ function ManageStudent() {
         email: '',
         session: '',
         course: '',
+        courseType: '',
         year: '',
         gender: '',
         category: '',
-        amount: ''
+        amount: 0
     })
+
+    console.log(newStudent);
+
+    const [ amountsData, setAmountsData ] = useState([])
+    console.log(amountsData);
+
+    const findAmount = (subject, courseType) => {
+        axios
+            .post(`${process.env.REACT_APP_BACKEND_URL}/find-subject`, { subject: subject, courseType: courseType})
+            .then(res => setAmountsData(res.data.amount))
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        if(newStudent.course !== '' && newStudent.courseType !== ''){
+            findAmount(newStudent.course, newStudent.courseType)
+        }
+        else setAmountsData([])
+    }, [newStudent.course, newStudent.courseType])
+
+    const [ showAmount, setShowAmount ] = useState([])
+    console.log(showAmount)
+
+    useEffect(() => {
+        if(newStudent.year !== ''){
+            const onlyAmount = amountsData.filter((item) => {
+                if(item.semester == newStudent.year){
+                    setShowAmount(item)
+                }
+            })
+        }
+        else setShowAmount([])
+    }, [newStudent.year])
+
+    useEffect(() => {
+        if(showAmount != [] || showAmount !== '' || showAmount !== null || showAmount !== undefined){
+            if(showAmount.all_student == 0){
+                if(newStudent.gender == ''){
+
+                }
+                else if(newStudent.gender == 'Male'){
+                    if(newStudent.category == ''){
+                        setNewStudent({
+                            ...newStudent,
+                            amount: showAmount.general
+                        })
+                    }
+                    else if(newStudent.category == 'BC-I'){
+                        setNewStudent({
+                            ...newStudent,
+                            amount: showAmount.bc_i
+                        })
+                    }
+                    else if(newStudent.category == 'SC'){
+                        setNewStudent({
+                            ...newStudent,
+                            amount: showAmount.sc
+                        })
+                    }
+                    else if(newStudent.category == 'ST'){
+                        setNewStudent({
+                            ...newStudent,
+                            amount: showAmount.st
+                        })
+                    }
+                    else if(newStudent.category == 'General'){
+                        setNewStudent({
+                            ...newStudent,
+                            amount: showAmount.general
+                        })
+                    }
+                }
+                else if(newStudent.gender == 'Female'){
+                    setNewStudent({
+                        ...newStudent,
+                        amount: showAmount.girl
+                    })
+                }
+            }
+            else if(showAmount.all_student !== 0){
+                setNewStudent({
+                    ...newStudent,
+                    amount: showAmount.all_student
+                })
+            }
+        }
+        else{
+            if(showAmount.all_student == 0){
+                setNewStudent({
+                    ...newStudent,
+                    amount: 0
+                })
+            }
+        }
+    }, [showAmount, newStudent.gender, newStudent.category])
 
     const updateNewStudentData = e => {
         setNewStudent({
@@ -175,7 +275,7 @@ function ManageStudent() {
 
     const [ file, setFile ] = useState(null)
     const [ jsonData, setJsonData ] = useState([])
-    console.log(jsonData);
+    //console.log(jsonData);
 
     useEffect(() => {
         if(file){
@@ -243,10 +343,12 @@ function ManageStudent() {
                                                         axios
                                                             .post(`${process.env.REACT_APP_BACKEND_URL}/add-multiple-students`, { data : jsonData })
                                                             .then(() => {
+                                                                getStudentsList()
                                                                 alert('Students Added')
                                                                 close()
                                                             })
                                                             .catch(err => {
+                                                                getStudentsList()
                                                                 alert('Students Not Added')
                                                                 close()
                                                             }) 
@@ -324,18 +426,30 @@ function ManageStudent() {
                                                 </div>
                                                 
                                                 <div className='form-group-6 form-group-6-options'>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='courseType' onChange={updateNewStudentData} >
+                                                        <option selected hidden value=''>Select Student's Course Type</option>
+                                                        <option value='UG'>UG</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <div className='form-group-6 form-group-6-options'>
                                                     <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='year' onChange={updateNewStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Year/Semester</option>
-                                                        <option value='1st Semester'>1st Semester</option>
-                                                        <option value='2nd Semester'>2nd Semester</option>
-                                                        <option value='3rd Semester'>3rd Semester</option>
-                                                        <option value='4th Semester'>4th Semester</option>
+                                                        <option selected hidden value=''>Select Student's Year/Semester</option>
+                                                        <option value='Semester 1'>Semester 1</option>
+                                                        <option value='Semester 2'>Semester 2</option>
+                                                        <option value='Semester 3'>Semester 3</option>
+                                                        <option value='Semester 4'>Semester 4</option>
+                                                        <option value='Semester 5'>Semester 5</option>
+                                                        <option value='Semester 6'>Semester 6</option>
+                                                        <option value='Semester 7'>Semester 7</option>
+                                                        <option value='Semester 8'>Semester 8</option>
+                                                        <option value='Part 3'>Part 3</option>
                                                     </select>
                                                 </div>
 
                                                 <div className='form-group-6 form-group-6-options'>
                                                     <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='gender' onChange={updateNewStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Gender</option>
+                                                        <option selected hidden value=''>Select Student's Gender</option>
                                                         <option value='Male'>Male</option>
                                                         <option value='Female'>Female</option>
                                                         <option value='Others'>Others</option>
@@ -344,17 +458,17 @@ function ManageStudent() {
 
                                                 <div className='form-group-6 form-group-6-options'>
                                                     <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='category' onChange={updateNewStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Category</option>
+                                                        <option selected hidden value=''>Select Student's Category</option>
                                                         <option value='General'>General</option>
-                                                        <option value='OBC-A'>OBC-A</option>
-                                                        <option value='OBC-B'>OBC-B</option>
+                                                        <option value='BC-I'>BC-I</option>
+                                                        <option value='BC-II'>BC-II</option>
                                                         <option value='SC'>SC</option>
                                                         <option value='ST'>ST</option>
                                                     </select>
                                                 </div>
                                                 
                                                 <div className='form-group-6'>
-                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='amount' placeholder={`Student's Fees Amount`} onChange={updateNewStudentData} />
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='amount' placeholder={`Student's Fees Amount`} value={newStudent.amount} />
                                                     <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
                                                 </div>
 
@@ -364,10 +478,12 @@ function ManageStudent() {
                                                         axios
                                                             .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, newStudent)
                                                             .then(() => {
+                                                                getStudentsList()
                                                                 alert('Student Added')
                                                                 close()
                                                             })
                                                             .catch(err => {
+                                                                getStudentsList()
                                                                 alert('Student Not Added')
                                                                 close()
                                                             })

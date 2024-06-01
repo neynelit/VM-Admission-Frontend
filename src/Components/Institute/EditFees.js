@@ -77,48 +77,53 @@ function EditFees() {
         </Container>
         <Container fluid>
             <Row className='justify-content-center'>
-                <Col sm='12' className='login-form-6-col'>
-                    <form className='login-form-6'>
+                <Col sm='12' className='login-form-6-col-2'>
+                    <form className='login-form-6-2'>
                         <div className='form-group'>
-                            <select class="form-select input-select input-select-6" aria-label=".form-select-lg example" autoFocus required name='courseType' onChange={updateData} >
-                                <option selected hidden defaultValue={data.courseType || ''}>{data.courseType || 'Select Your Gender'}</option>
-                                <option value='Graduation'>Graduation</option>
-                                <option value='Post Graduation'>Post Graduation</option>
-                                <option value='Examination'>Examination</option>
+                            <select class="form-select input-select input-select-6" aria-label=".form-select-lg example" autoFocus required name='courseType' >
+                                <option selected hidden value={data.courseType || ''}>{data.courseType || 'Select Your Gender'}</option>
                             </select>
                         </div>
 
                         <div className='form-group'>
-                            <input type='text' className='form-control my-3 input-text-6' autoFocus name='subject' placeholder='Course Name' defaultValue={data.subject} onChange={updateData} />
+                            <input type='text' className='form-control my-3 input-text-6' autoFocus name='subject' placeholder='Course Name' value={data.subject} />
                             <i class="fa-solid fa-building-columns errspan"></i>
                         </div>
 
-                        <div className='form-group'>
-                            <select class="form-select input-select input-select-6" aria-label=".form-select-lg example" autoFocus required name='semester' onChange={updateData} >
-                                <option selected hidden defaultValue={data.semester || ''}>{data.semester || 'Select Course Semester'}</option>
-                                <option value='1st Semester'>1st Semester</option>
-                                <option value='2nd Semester'>2nd Semester</option>
-                                <option value='3rd Semester'>3rd Semester</option>
-                                <option value='4th Semester'>4th Semester</option>
-                            </select>
-                        </div>
+                        <div className='table-responsive-xl inner-table-2'>
+                            <table className='table'>
+                                <thead>
+                                    <tr>
+                                        <th scope='col'>Semester</th>
+                                        <th scope='col'>Capacity</th>
+                                        <th scope='col'>All Student</th>
+                                        <th scope='col'>General / BC-II</th>
+                                        <th scope='col'>BC-I</th>
+                                        <th scope='col'>SC</th>
+                                        <th scope='col'>ST</th>
+                                        <th scope='col'>Girls</th>
+                                    </tr>
+                                </thead>
 
-                        <div className='form-group'>
-                            <input type='number' className='form-control my-3 input-text-6' autoFocus name='capacity' placeholder='Course Capacity' defaultValue={data.capacity} onChange={updateData} />
-                            <i class="fa-solid fa-warehouse errspan"></i>
-                        </div>
-
-                        <div className='form-group'>
-                            <input type='number' className='form-control my-3 input-text-6' autoFocus name='amount' placeholder='Course Amount' defaultValue={data.amount} onChange={updateData} />
-                            <i class="fa-solid fa-indian-rupee-sign errspan"></i>
-                        </div>
-
-                        <div className='form-group'>
-                            <select class="form-select input-select input-select-6" aria-label=".form-select-lg example" autoFocus required name='admission_status' onChange={updateData} >
-                                <option selected hidden defaultValue={data.admission_status || ''}>{admissionStatus(data.admission_status) || 'Select Admission Status'}</option>
-                                <option value='true'>Open</option>
-                                <option value='false'>Close</option>
-                            </select>
+                                <tbody>
+                                    {
+                                        data.amount?.map((item1, index1) => {
+                                            return(
+                                                <tr key={index1}>
+                                                    <td>{item1.semester}</td>
+                                                    <td>{item1.capacity}</td>
+                                                    <td>{item1.all_student}</td>
+                                                    <td>{item1.general}</td>
+                                                    <td>{item1.bc_i}</td>
+                                                    <td>{item1.sc}</td>
+                                                    <td>{item1.st}</td>
+                                                    <td>{item1.girl}</td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                            </table>
                         </div>
 
                         <div className='button-6'>
