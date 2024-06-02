@@ -299,6 +299,19 @@ function ManageStudent() {
             reader.readAsBinaryString(file)
         }
     }, [file])
+
+    const submit = e => {
+        axios
+            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, newStudent)
+            .then(() => {
+                getStudentsList()
+                alert('Student Added')
+            })
+            .catch(err => {
+                getStudentsList()
+                alert('Student Not Added')
+            })
+    }
   return (
     <Container fluid>
         <Row>
@@ -377,7 +390,7 @@ function ManageStudent() {
                                         <Col sm='12' className='add-data-from'>
                                             <h4>Add Student</h4>
 
-                                            <form>
+                                            <form onSubmit={e => { e.preventDefault(); submit(); close() }}>
                                                 <div className='form-group-6'>
                                                     <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='name' placeholder={`Student's Full Name`} onChange={updateNewStudentData} />
                                                     <i class="fa-solid fa-user icon-align"></i>
@@ -473,21 +486,7 @@ function ManageStudent() {
                                                 </div>
 
                                                 <div className='buttoned-2'>
-                                                    <button className='btn' onClick={e => {
-                                                        e.preventDefault()
-                                                        axios
-                                                            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, newStudent)
-                                                            .then(() => {
-                                                                getStudentsList()
-                                                                alert('Student Added')
-                                                                close()
-                                                            })
-                                                            .catch(err => {
-                                                                getStudentsList()
-                                                                alert('Student Not Added')
-                                                                close()
-                                                            })
-                                                    }}>Add</button>
+                                                    <button className='btn'>Add</button>
                                                     <button className='btn' onClick={e => {e.preventDefault();close();}}>Exit</button>
                                                 </div>
                                             </form>

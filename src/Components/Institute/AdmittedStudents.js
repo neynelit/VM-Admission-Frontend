@@ -36,6 +36,18 @@ function AdmittedStudents() {
     const [ studentsList, setStudentsList ] = useState([])
     const [ studentsList2, setStudentsList2 ] = useState(studentsList)
     console.log(studentsList2)
+
+    const getStudentsList = () => {
+        axios
+            .get(`${process.env.REACT_APP_BACKEND_URL}/students`)
+            .then(res => setStudentsList(res.data))
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getStudentsList()
+    }, [])
+
     const [ entriesNum, setEntriesNum ] = useState(10)
 
 
@@ -106,16 +118,113 @@ function AdmittedStudents() {
 
     const [ studentData, setStudentData ] = useState({
         name: '',
+        registration_no: '',
         father_name: '',
         mobile: '',
         email: '',
         session: '',
         course: '',
+        courseType: '',
         year: '',
         gender: '',
         category: '',
         amount: ''
     })
+
+    console.log(studentData);
+
+    const [ amountsData, setAmountsData ] = useState([])
+    console.log(amountsData);
+
+    const findAmount = (subject, courseType) => {
+        axios
+            .post(`${process.env.REACT_APP_BACKEND_URL}/find-subject`, { subject: subject, courseType: courseType})
+            .then(res => setAmountsData(res.data.amount))
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        if(studentData.course !== '' && studentData.courseType !== ''){
+            findAmount(studentData.course, studentData.courseType)
+        }
+        else setAmountsData([])
+    }, [studentData.course, studentData.courseType])
+
+    const [ showAmount, setShowAmount ] = useState([])
+    console.log(showAmount)
+
+    useEffect(() => {
+        if(studentData.year !== ''){
+            const onlyAmount = amountsData.filter((item) => {
+                if(item.semester == studentData.year){
+                    setShowAmount(item)
+                }
+            })
+        }
+        else setShowAmount([])
+    }, [studentData.year])
+
+    useEffect(() => {
+        if(showAmount != [] || showAmount !== '' || showAmount !== null || showAmount !== undefined){
+            if(showAmount.all_student == 0){
+                if(studentData.gender == ''){
+
+                }
+                else if(studentData.gender == 'Male'){
+                    if(studentData.category == ''){
+                        setStudentData({
+                            ...studentData,
+                            amount: showAmount.general
+                        })
+                    }
+                    else if(studentData.category == 'BC-I'){
+                        setStudentData({
+                            ...studentData,
+                            amount: showAmount.bc_i
+                        })
+                    }
+                    else if(studentData.category == 'SC'){
+                        setStudentData({
+                            ...studentData,
+                            amount: showAmount.sc
+                        })
+                    }
+                    else if(studentData.category == 'ST'){
+                        setStudentData({
+                            ...studentData,
+                            amount: showAmount.st
+                        })
+                    }
+                    else if(studentData.category == 'General' || studentData.category == 'BC-II'){
+                        setStudentData({
+                            ...studentData,
+                            amount: showAmount.general
+                        })
+                    }
+                }
+                else if(studentData.gender == 'Female'){
+                    setStudentData({
+                        ...studentData,
+                        amount: showAmount.girl
+                    })
+                }
+            }
+            else if(showAmount.all_student !== 0){
+                setStudentData({
+                    ...studentData,
+                    amount: showAmount.all_student
+                })
+            }
+        }
+        else{
+            if(showAmount.all_student == 0){
+                setStudentData({
+                    ...studentData,
+                    amount: 0
+                })
+            }
+        }
+    }, [showAmount, studentData.gender, studentData.category])
 
     const updateStudentData = e => {
         setStudentData({
@@ -161,6 +270,19 @@ function AdmittedStudents() {
         if(searchItem !== '') setStudentsList2([])
     }, [searchItem, studentsList])
 
+    const submit = () => {
+        axios
+            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, studentData)
+            .then(() => {
+                getStudentsList()
+                alert('Student Added')
+            })
+            .catch(err => {
+                getStudentsList()
+                alert('Student Not Added')
+            })
+    }
+
   return (
     <Container fluid>
         <Row>
@@ -193,10 +315,16 @@ function AdmittedStudents() {
                                         <Col sm='12' className='add-data-from'>
                                             <h4>Add Student</h4>
 
-                                            <form>
+                                            <form onSubmit={e => { e.preventDefault(); submit(); close() }}>
                                                 <div className='form-group-6'>
                                                     <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='name' placeholder={`Student's Full Name`} onChange={updateStudentData} />
                                                     <i class="fa-solid fa-user icon-align"></i>
+                                                </div>
+
+                                                
+                                                <div className='form-group-6'>
+                                                    <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='registration_no' placeholder={`Student's Registration Number`} onChange={updateStudentData} />
+                                                    <i class="fa-solid fa-hashtag icon-align"></i>
                                                 </div>
 
                                                 
@@ -217,14 +345,14 @@ function AdmittedStudents() {
                                                 
                                                 <div className='form-group-6 form-group-6-options'>
                                                     <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='session' onChange={updateStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Session</option>
+                                                        <option hidden value='2024-2028'>Select Student's Session</option>
                                                         <option value='2024-2028'>2024-2028</option>
                                                     </select>
                                                 </div>
                                                 
                                                 <div className='form-group-6 form-group-6-options'>
                                                     <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='course' onChange={updateStudentData} >
-                                                        <option selected hidden value=''>Select Student's Course</option>
+                                                        <option hidden value=''>Select Student's Course</option>
                                                         {
                                                             subjects2 && subjects2.map((item, index) => {
                                                                 return(
@@ -236,18 +364,30 @@ function AdmittedStudents() {
                                                 </div>
                                                 
                                                 <div className='form-group-6 form-group-6-options'>
+                                                    <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='courseType' onChange={updateStudentData} >
+                                                        <option hidden value=''>Select Student's Course Type</option>
+                                                        <option value='UG'>UG</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <div className='form-group-6 form-group-6-options'>
                                                     <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='year' onChange={updateStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Year/Semester</option>
-                                                        <option value='1st Semester'>1st Semester</option>
-                                                        <option value='2nd Semester'>2nd Semester</option>
-                                                        <option value='3rd Semester'>3rd Semester</option>
-                                                        <option value='4th Semester'>4th Semester</option>
+                                                        <option hidden value=''>Select Student's Year/Semester</option>
+                                                        <option value='Semester 1'>Semester 1</option>
+                                                        <option value='Semester 2'>Semester 2</option>
+                                                        <option value='Semester 3'>Semester 3</option>
+                                                        <option value='Semester 4'>Semester 4</option>
+                                                        <option value='Semester 5'>Semester 5</option>
+                                                        <option value='Semester 6'>Semester 6</option>
+                                                        <option value='Semester 7'>Semester 7</option>
+                                                        <option value='Semester 8'>Semester 8</option>
+                                                        <option value='Part 3'>Part 3</option>
                                                     </select>
                                                 </div>
 
                                                 <div className='form-group-6 form-group-6-options'>
                                                     <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='gender' onChange={updateStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Gender</option>
+                                                        <option hidden value=''>Select Student's Gender</option>
                                                         <option value='Male'>Male</option>
                                                         <option value='Female'>Female</option>
                                                         <option value='Others'>Others</option>
@@ -256,32 +396,22 @@ function AdmittedStudents() {
 
                                                 <div className='form-group-6 form-group-6-options'>
                                                     <select class="form-select form-group-6-select" aria-label=".form-select-lg example" autoFocus name='category' onChange={updateStudentData} >
-                                                        <option selected hidden value='2024-2028'>Select Student's Category</option>
+                                                        <option hidden value=''>Select Student's Category</option>
                                                         <option value='General'>General</option>
-                                                        <option value='OBC-A'>OBC-A</option>
-                                                        <option value='OBC-B'>OBC-B</option>
+                                                        <option value='BC-I'>BC-I</option>
+                                                        <option value='BC-II'>BC-II</option>
                                                         <option value='SC'>SC</option>
                                                         <option value='ST'>ST</option>
                                                     </select>
                                                 </div>
                                                 
                                                 <div className='form-group-6'>
-                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='amount' placeholder={`Student's Fees Amount`} onChange={updateStudentData} />
+                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='amount' placeholder={`Student's Fees Amount`} value={studentData.amount} />
                                                     <i class="fa-solid fa-indian-rupee-sign icon-align"></i>
                                                 </div>
 
                                                 <div className='buttoned-2'>
-                                                    <button className='btn' onClick={e => {
-                                                        e.preventDefault()
-                                                        axios
-                                                            .post(`${process.env.REACT_APP_BACKEND_URL}/add-student`, studentData)
-                                                            .then(() => {
-                                                                alert('Student Added')
-                                                                close()
-                                                            })
-                                                            .catch(err => console.log(err))
-                                                            close()
-                                                    }}>Add</button>
+                                                    <button className='btn'>Add</button>
                                                     <button className='btn' onClick={e => {e.preventDefault();close();}}>Exit</button>
                                                 </div>
                                             </form>
