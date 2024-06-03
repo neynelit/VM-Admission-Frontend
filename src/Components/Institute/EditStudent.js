@@ -125,6 +125,11 @@ function EditStudent() {
               </div>
               
               <div className='form-group'>
+                <input type='text' className='form-control my-3 input-text-6' autoFocus name='roll' placeholder='Roll Number' value={data.roll} />
+                <i class="fa-solid fa-hashtag errspan"></i>
+              </div>
+              
+              <div className='form-group'>
                 <input type='number' className='form-control my-3 input-text-6' autoFocus name='mobile' placeholder='Student`s Mobile Number' defaultValue={data.mobile} onChange={updateData}/>
                 <i class="fa-solid fa-phone errspan"></i>
               </div>
@@ -176,11 +181,16 @@ function EditStudent() {
                 <select class="form-select input-select input-select-6" aria-label=".form-select-lg example" autoFocus required name='category' onChange={updateData} >
                   <option selected hidden defaultValue={data.category || ''}>{data.category || 'Select Your Gender'}</option>
                   <option value='General'>General</option>
-                  <option value='OBC-A'>OBC-A</option>
-                  <option value='OBC-B'>OBC-B</option>
+                  <option value='BC-I'>BC-I</option>
+                  <option value='BC-II'>BC-II</option>
                   <option value='SC'>SC</option>
                   <option value='ST'>ST</option>
                 </select>
+              </div>
+              
+              <div className='form-group'>
+                <input type='number' className='form-control my-3 input-text-6' autoFocus name='amount' placeholder='Student`s Fees Amount' defaultValue={data.amount} onChange={updateData} />
+                <i class="fa-solid fa-indian-rupee-sign errspan"></i>
               </div>
 
               <div className='button-6'>

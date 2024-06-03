@@ -40,9 +40,26 @@ function InstituteDashboard() {
         .catch(err => console.log(err))
     }
   })
+
+  const [ admittedStudent, setAdmittedStudent ] = useState(0)
+  const [ totalStudent, setTotalStudent ] = useState(0)
+  console.log(admittedStudent + ' of ' + totalStudent);
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/students`)
+      .then(res => setTotalStudent(res.data.length))
+      .catch(err => console.log(err))
+
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/find-student`, { field: 'admission_status', value: 'true' })
+      .then(res => setAdmittedStudent(res.data.length))
+      .catch(err => console.log(err))
+  })
+
   const studentsData = [
-    { name: 'Admitted Students', students: 924},
-    { name: 'Total Students', students: 1126}
+    { name: 'Admitted Students', students: admittedStudent},
+    { name: 'Total Students', students: totalStudent}
   ]
 
   const newStudentsData = {
@@ -82,7 +99,7 @@ function InstituteDashboard() {
                 <a><i class="fa-solid fa-user-check"></i></a>
                 <div className='student-number-box-text'>
                   <h6>Admitted Student</h6>
-                  <p>924</p>
+                  <p>{admittedStudent}</p>
                 </div>
               </div>
             </Col>
@@ -92,7 +109,7 @@ function InstituteDashboard() {
                 <a><i class="fa-solid fa-circle-user"></i></a>
                 <div className='student-number-box-text'>
                   <h6>Total Student</h6>
-                  <p>1226</p>
+                  <p>{totalStudent}</p>
                 </div>
               </div>
             </Col>

@@ -130,9 +130,9 @@ function StudentsEdit() {
                         </Col>
 
                         <Col sm='3' className='form-group-4'>
-                            <label for='mobile'>Mobile Number</label>
+                            <label for='mobile'>Mobile Number <a className='required'>*</a></label>
 
-                            <input type='number' className='form-control my-3 input-text' autoFocus name='mobile' placeholder='Enter Your Mobile Number' defaultValue={data.mobile || ''} />
+                            <input type='number' className='form-control my-3 input-text' autoFocus name='mobile' placeholder='Enter Your Mobile Number' defaultValue={data.mobile || ''} onChange={updateData} />
                             <i class="fa-solid fa-phone errspan"></i>
                         </Col>
 
@@ -192,8 +192,8 @@ function StudentsEdit() {
                             <select class="form-select input-select admission-select" aria-label=".form-select-lg example" autoFocus name='category' onChange={updateData} >
                                 <option selected hidden value={data.category || ''}>{data.category || 'Select Your Category'}</option>
                                 <option value='General'>General</option>
-                                <option value='OBC-A'>OBC-A</option>
-                                <option value='OBC-B'>OBC-B</option>
+                                <option value='OBC-A'>BC-I</option>
+                                <option value='OBC-B'>BC-II</option>
                                 <option value='SC'>SC</option>
                                 <option value='ST'>ST</option>
                             </select>

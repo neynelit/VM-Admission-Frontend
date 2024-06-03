@@ -104,24 +104,17 @@ function OpenClose() {
         else if(status ==  true) return 'Unpublish'
     }
 
-    const updateAllSubject = (type, courseType, semester, status) => {
-        axios
-            .patch(`${process.env.REACT_APP_BACKEND_URL}/update-all-subjects`, { type: type, courseType: courseType, semester: semester, status: !status })
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
-    }
-
     const updateStatus = (item) => {
         if(item.status == false){
             axios
                 .patch(`${process.env.REACT_APP_BACKEND_URL}/update-openclose/${item._id}`, { status: 'true', date: Date.now})
-                .then(() => updateAllSubject(item.type, item.programme, item.semester, item.status))
+                .then(() => alert(`Admission for ${item.semester} is now open!`))
                 .catch(err => console.log(err))
         }
         else if(item.status == true){
             axios
                 .patch(`${process.env.REACT_APP_BACKEND_URL}/update-openclose/${item._id}`, { status: 'false'})
-                .then(() => updateAllSubject(item.type, item.programme, item.semester, item.status))
+                .then(() => alert(`Admission for ${item.semester} is now closed!`))
                 .catch(err => console.log(err))
         }
     }
@@ -186,7 +179,7 @@ function OpenClose() {
                                                 <td>{item.programme}</td>
                                                 <td>{item.semester}</td>
                                                 <td style={statusColor(item.status)}>{programmeStatus(item.status)}</td>
-                                                <td className='action-button-parent' style={statusActionColor(item.status)} onClick={() => updateStatus(item)}>
+                                                <td className='action-button-parent' style={statusActionColor(item.status)} onClick={e => { e.preventDefault(); updateStatus(item) }}>
                                                     <a className='action-button'>{openCloseAction(item.status)}</a>
                                                     <a className='action-button-tooltip'>{openCloseActionName(item.status)}</a>
                                                 </td>

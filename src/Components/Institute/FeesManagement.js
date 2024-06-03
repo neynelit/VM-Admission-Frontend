@@ -71,7 +71,7 @@ function FeesManagement() {
 
         if(Math.ceil(subjects2.length/entriesNum) !== 0) setPageCount(Math.ceil(subjects2.length/entriesNum))
         else if(Math.ceil(subjects2.length/entriesNum) == 0) setPageCount(1)
-    }, [ entriesNum, page])
+    }, [page, entriesNum, subjects2])
 
     useEffect(() => {
         axios

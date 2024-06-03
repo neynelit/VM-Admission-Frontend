@@ -17,6 +17,12 @@ function ApplicationFilledForm() {
         if(status == true) return 'SUCCESS'
         else if(status == false) return 'FAILED'
     }
+
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    var date = new Date(data.transDate)
+    console.log(`${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`);
   return (
     <>
         <Container fluid id='application-form' ref={targetRef}>
@@ -165,17 +171,17 @@ function ApplicationFilledForm() {
                                 
                                 <div className='application-box-details-text'>
                                     <p><b>Paid on Date: </b></p>
-                                    <p>{data.date}</p>
+                                    <p>{days[date.getDay()]},  {months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
                                 </div>
                                 
                                 <div className='application-box-details-text'>
                                     <p><b>Payment Through: </b></p>
-                                    <p></p>
+                                    <p>{data.paymentMode}</p>
                                 </div>
                                 
                                 <div className='application-box-details-text'>
                                     <p><b>Submitted On: </b></p>
-                                    <p></p>
+                                    <p>{days[date.getDay()]},  {months[date.getMonth()]} {date.getDate()}, {date.getFullYear()}</p>
                                 </div>
                             </Col>
                         </Row>

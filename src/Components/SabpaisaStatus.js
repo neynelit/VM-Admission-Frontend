@@ -16,38 +16,61 @@ function SabpaisaStatus() {
   const status = params.get('status')
   const payerName = params.get('payerName')
   const payerMobile = params.get('payerMobile')
+  const transaction_id = params.get('clientTxnId')
+  const paymentMode = params.get('paymentMode')
+  const sabpaisaTxnId = params.get('sabpaisaTxnId')
+  const bankTxnId = params.get('bankTxnId')
+
+  
 
   const [ data, setData ] = useState([])
+  console.log(data);
+
+  const getStudentData = () => {
+    axios
+    .post(`${process.env.REACT_APP_BACKEND_URL}/check-student`, { name: payerName, mobile: payerMobile })
+    .then(res => setData(res.data))
+    .catch(err => console.log(err))
+  }
 
   useEffect(() => {
-      axios
-          .post(`${process.env.REACT_APP_BACKEND_URL}/check-student`, { name: payerName, mobile: payerMobile })
-          .then(res => setData(res.data))
-          .catch(err => console.log(err))
-  }, [])
+    getStudentData()
+  })
 
   const [ statusMessage, setStatusMessage ] = useState('')
   const [ seconds, setSeconds ] = useState(10)
   const [ statusColor, setStatusColor ] = useState('')
 
-  const updateAdmStatus = (status) => {
+  const updateAdmStatus = (id) => {
     axios
-      .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${data._id}`, { admission_status: status, date: Date.now()})
-      .then(() => console.log('Status updated'))
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${id}`, { admission_status: 'true', transaction_id: transaction_id, paymentMode: paymentMode, sabpaisaTxnId: sabpaisaTxnId, bankTxnId: bankTxnId, transDate: Date.now() })
+      .then(() => console.log('Status updated true'))
+      .catch(err => console.log(err))
+  }
+  
+  const updateAdmStatus2 = (id) => {
+    axios
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${id}`, { admission_status: 'false', date: Date.now()})
+      .then(() => console.log('Status updated false'))
       .catch(err => console.log(err))
   }
 
   useEffect(() => {
-    if(status == 'SUCCESS'){
-      setStatusMessage('successful')
-      setStatusColor('green')
-      updateAdmStatus('true')
-    }
-    else if(status == 'FAILED'){
-      setStatusMessage('failed')
-      setStatusColor('rgb(165, 0, 0)')
-      updateAdmStatus('false')
-    }
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/check-student`, { name: payerName, mobile: payerMobile })
+      .then(res => {
+        if(status == 'SUCCESS'){
+          setStatusMessage('successful')
+          setStatusColor('green')
+          updateAdmStatus(res.data._id)
+        }
+        else if(status == 'FAILED'){
+          setStatusMessage('failed')
+          setStatusColor('rgb(165, 0, 0)')
+          updateAdmStatus2(res.data._id)
+        }
+      })
+      .catch(err => console.log(err))
   }, [status])
 
   const nextPageLink = () => {

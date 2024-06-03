@@ -143,6 +143,15 @@
     justify-content: space-between;
 }
 
+.receipt-container-2-col a{
+    background-color: rgb(60, 60, 255);
+    color: white !important;
+    padding: 7px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgb(60, 60, 255);
+}
+
 .receipt-container-2 .receipt-container-2-row .receipt-container-2-col a{
     font-size: 17px;
     cursor: pointer;
@@ -150,5 +159,6 @@
 }
 
 .receipt-container-2 .receipt-container-2-row .receipt-container-2-col a:hover{
-    color: rgb(165, 0, 0);
+    background-color: white;
+    color: rgb(60, 60, 255) !important;
 }

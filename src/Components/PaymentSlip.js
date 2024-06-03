@@ -17,10 +17,10 @@ function PaymentSlip() {
 
     useEffect(() => {
         axios
-            .post(`http://localhost:8080/single-student-find/${params.registration_no}`)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/single-student-find/${params.registration_no}`)
             .then(res => setData(res.data))
             .catch(err => console.log(err))
-    }, [])
+    }, [params.registration_no])
 
     const status2 = (status) => {
         if(status == true) return 'SUCCESS'
@@ -30,7 +30,7 @@ function PaymentSlip() {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-    var date = new Date(data.date)
+    var date = new Date(data.transDate)
     console.log(`${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`);
 
 

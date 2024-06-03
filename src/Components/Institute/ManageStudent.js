@@ -132,8 +132,7 @@ function ManageStudent() {
         name: '',
         registration_no: '',
         father_name: '',
-        mobile: '',
-        email: '',
+        roll: '',
         session: '',
         course: '',
         courseType: '',
@@ -409,13 +408,8 @@ function ManageStudent() {
                                                 </div>
                                                 
                                                 <div className='form-group-6'>
-                                                    <input type='number' className='form-control my-3 form-group-6-input' autoFocus required name='mobile' placeholder={`Mobile No`} onChange={updateNewStudentData} />
-                                                    <i class="fa-solid fa-envelope icon-align"></i>
-                                                </div>
-                                                
-                                                <div className='form-group-6'>
-                                                    <input type='email' className='form-control my-3 form-group-6-input' autoFocus required name='email' placeholder={`Email Id`} onChange={updateNewStudentData} />
-                                                    <i class="fa-solid fa-phone icon-align"></i>
+                                                    <input type='text' className='form-control my-3 form-group-6-input' autoFocus required name='roll' placeholder={`Roll No`} onChange={updateNewStudentData} />
+                                                    <i class="fa-solid fa-hashtag icon-align"></i>
                                                 </div>
                                                 
                                                 <div className='form-group-6 form-group-6-options'>

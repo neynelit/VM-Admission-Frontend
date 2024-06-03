@@ -46,7 +46,7 @@ function StudentReview(props) {
     const [payerEmail, setPayerEmail] = useState(`${data2.email}`);
     const [payerMobile, setPayerMobile] = useState(`${data2.mobile}`);
     const [clientTxnId, setclientTxnId] = useState(uuidv4());
-    const [amount, setAmount] = useState(1);
+    const [amount, setAmount] = useState(`${data2.amount}`);
     const [payerAddress, setPayerAddress] = useState(`${data2.street_name}, ${data2.street_name_2}, ${data2.city}, ${data2.state}, ${data2.country}`);
     const [callbackUrl, setCallbackUrl] = useState("http://localhost:3000/response");
     const [data, setData] = useState(null)
