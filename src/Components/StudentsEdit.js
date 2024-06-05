@@ -63,6 +63,74 @@ function StudentsEdit() {
     //     submitApplication()
     // }, [])
 
+    const educationalDetails = (year) => {
+        if(year == 'Semester 1') return(
+            <Row className='details-edit-student'>
+                <Col sm='12' className='students-edit-header'>
+                    <h6>Educational Details</h6>
+                </Col>
+                
+                <Col sm='3' className='form-group-4'>
+                    <label for='hs_board'>10+2 Board Name <a className='required'>*</a></label>
+
+                    <select class="form-select input-select admission-select" aria-label=".form-select-lg example" autoFocus required name='hs_board' onChange={updateData} >
+                        <option selected hidden value={data.hs_board || ''}>{data.hs_board || 'Select Your 10+2 Board'}</option>
+                        {boardsList && boardsList.map((item, index) => {
+                            return(
+                                <option key={index} value={item}>{item}</option>
+                            )
+                        })}
+                    </select>
+                </Col>
+                
+                <Col sm='3' className='form-group-4'>
+                    <label for='hs_stream'>10+2 Stream <a className='required'>*</a></label>
+                    
+                    <select class="form-select input-select admission-select" aria-label=".form-select-lg example" autoFocus required name='hs_stream' onChange={updateData} >
+                        <option selected hidden value={data.hs_stream || ''}>{data.hs_stream || 'Select Your 10+2 Stream'}</option>
+                        <option value='Arts'>Arts</option>
+                        <option value='Commerce'>Commerce</option>
+                        <option value='Science'>Science</option>
+                    </select>
+                </Col>
+                
+                <Col sm='3' className='form-group-4'>
+                    <label for='hs_year'>10+2 Pass Year <a className='required'>*</a></label>
+                    
+                    <select class="form-select input-select admission-select" aria-label=".form-select-lg example" autoFocus required name='hs_year' onChange={updateData} >
+                        <option selected hidden value={data.hs_year || ''}>{data.hs_year || 'Select Your 10+2 Pass Year'}</option>
+                        <option value='2024'>2024</option>
+                        <option value='2023'>2023</option>
+                        <option value='2022'>2022</option>
+                        <option value='2021'>2021</option>
+                    </select>
+                </Col>
+                
+                <Col sm='3' className='form-group-4'>
+                    <label for='hs_reg_no'>10+2 Registration Number <a className='required'>*</a></label>
+
+                    <input type='text' className='form-control my-3 input-text' autoFocus required name='hs_reg_no' placeholder='Enter Your 10+2 Registration Number' value={data.hs_reg_no || ''} onChange={updateData} />
+                    <i class="fa-solid fa-hashtag errspan"></i>
+                </Col>
+                
+                <Col sm='3' className='form-group-4'>
+                    <label for='hs_roll_no'>10+2 Roll Number <a className='required'>*</a></label>
+
+                    <input type='text' className='form-control my-3 input-text' autoFocus required name='hs_roll_no' placeholder='Enter Your 10+2 Roll Number' value={data.hs_roll_no || ''} onChange={updateData} />
+                    <i class="fa-solid fa-hashtag errspan"></i>
+                </Col>
+                
+                <Col sm='3' className='form-group-4'>
+                    <label for='hs_marks'>10+2 Marks in Percentage(%) <a className='required'>*</a></label>
+
+                    <input type='text' className='form-control my-3 input-text' autoFocus required name='hs_marks' placeholder='Enter Your 10+2 Marks in Percentage(%)' value={data.hs_marks || ''} onChange={updateData} />
+                    <i class="fa-solid fa-marker errspan"></i>
+                </Col>
+            </Row>
+        )
+        else return ''
+    }
+
   return (
     <Container fluid>
         <Row className='justify-content-center'>
@@ -225,9 +293,9 @@ function StudentsEdit() {
                         </Col>
 
                         <Col sm='3' className='form-group-4'>
-                            <label for='annual_income'>Annual Family Income <a className='required'>*</a></label>
+                            <label for='annual_income'>Annual Family Income</label>
 
-                            <input type='number' className='form-control my-3 input-text' autoFocus required name='annual_income' placeholder='Enter Your Annual Family Income' defaultValue={data.annual_income || ''} onChange={updateData} />
+                            <input type='number' className='form-control my-3 input-text' autoFocus name='annual_income' placeholder='Enter Your Annual Family Income' defaultValue={data.annual_income || ''} onChange={updateData} />
                             <i class="fa-solid fa-indian-rupee-sign errspan"></i>
                         </Col>
 
@@ -255,16 +323,16 @@ function StudentsEdit() {
                         </Col>
                         
                         <Col sm='3' className='form-group-4'>
-                            <label for='father_occupation'>Father's Occupation <a className='required'>*</a></label>
+                            <label for='father_occupation'>Father's Occupation</label>
 
-                            <input type='text' className='form-control my-3 input-text' autoFocus required name='father_occupation' placeholder={`Enter Your Father's Occupation`} value={data.father_occupation || ''} onChange={updateData} />
+                            <input type='text' className='form-control my-3 input-text' autoFocus name='father_occupation' placeholder={`Enter Your Father's Occupation`} value={data.father_occupation || ''} onChange={updateData} />
                             <i class="fa-solid fa-business-time errspan"></i>
                         </Col>
 
                         <Col sm='3' className='form-group-4'>
-                            <label for='father_mobile'>Father's Mobile Number <a className='required'>*</a></label>
+                            <label for='father_mobile'>Father's Mobile Number</label>
 
-                            <input type='number' className='form-control my-3 input-text' autoFocus required name='father_mobile' placeholder={`Enter Your Father's Mobile Number`} defaultValue={data.father_mobile || ''} onChange={updateData} />
+                            <input type='number' className='form-control my-3 input-text' autoFocus name='father_mobile' placeholder={`Enter Your Father's Mobile Number`} defaultValue={data.father_mobile || ''} onChange={updateData} />
                             <i class="fa-solid fa-phone errspan"></i>
                         </Col>
 
@@ -278,16 +346,16 @@ function StudentsEdit() {
                         </Col>
                         
                         <Col sm='3' className='form-group-4'>
-                            <label for='mother_occupation'>Mother's Occupation <a className='required'>*</a></label>
+                            <label for='mother_occupation'>Mother's Occupation</label>
 
-                            <input type='text' className='form-control my-3 input-text' autoFocus required name='mother_occupation' placeholder={`Enter Your Mother's Occupation`} value={data.mother_occupation || ''} onChange={updateData} />
+                            <input type='text' className='form-control my-3 input-text' autoFocus name='mother_occupation' placeholder={`Enter Your Mother's Occupation`} value={data.mother_occupation || ''} onChange={updateData} />
                             <i class="fa-solid fa-business-time errspan"></i>
                         </Col>
 
                         <Col sm='3' className='form-group-4'>
-                            <label for='mother_mobile'>Mother's Mobile Number <a className='required'>*</a></label>
+                            <label for='mother_mobile'>Mother's Mobile Number</label>
 
-                            <input type='number' className='form-control my-3 input-text' autoFocus required name='mother_mobile' placeholder={`Enter Your Mother's Mobile Number`} defaultValue={data.mother_mobile || ''} onChange={updateData} />
+                            <input type='number' className='form-control my-3 input-text' autoFocus name='mother_mobile' placeholder={`Enter Your Mother's Mobile Number`} defaultValue={data.mother_mobile || ''} onChange={updateData} />
                             <i class="fa-solid fa-phone errspan"></i>
                         </Col>
                     </Row>
@@ -333,68 +401,7 @@ function StudentsEdit() {
                         </Col>
                     </Row>
 
-                    <Row className='details-edit-student'>
-                        <Col sm='12' className='students-edit-header'>
-                            <h6>Educational Details</h6>
-                        </Col>
-                        
-                        <Col sm='3' className='form-group-4'>
-                            <label for='hs_board'>10+2 Board Name <a className='required'>*</a></label>
-
-                            <select class="form-select input-select admission-select" aria-label=".form-select-lg example" autoFocus required name='hs_board' onChange={updateData} >
-                                <option selected hidden value={data.hs_board || ''}>{data.hs_board || 'Select Your 10+2 Board'}</option>
-                                {boardsList && boardsList.map((item, index) => {
-                                    return(
-                                        <option key={index} value={item}>{item}</option>
-                                    )
-                                })}
-                            </select>
-                        </Col>
-                        
-                        <Col sm='3' className='form-group-4'>
-                            <label for='hs_stream'>10+2 Stream <a className='required'>*</a></label>
-                            
-                            <select class="form-select input-select admission-select" aria-label=".form-select-lg example" autoFocus required name='hs_stream' onChange={updateData} >
-                                <option selected hidden value={data.hs_stream || ''}>{data.hs_stream || 'Select Your 10+2 Stream'}</option>
-                                <option value='Arts'>Arts</option>
-                                <option value='Commerce'>Commerce</option>
-                                <option value='Science'>Science</option>
-                            </select>
-                        </Col>
-                        
-                        <Col sm='3' className='form-group-4'>
-                            <label for='hs_year'>10+2 Pass Year <a className='required'>*</a></label>
-                            
-                            <select class="form-select input-select admission-select" aria-label=".form-select-lg example" autoFocus required name='hs_year' onChange={updateData} >
-                                <option selected hidden value={data.hs_year || ''}>{data.hs_year || 'Select Your 10+2 Pass Year'}</option>
-                                <option value='2024'>2024</option>
-                                <option value='2023'>2023</option>
-                                <option value='2022'>2022</option>
-                                <option value='2021'>2021</option>
-                            </select>
-                        </Col>
-                        
-                        <Col sm='3' className='form-group-4'>
-                            <label for='hs_reg_no'>10+2 Registration Number <a className='required'>*</a></label>
-
-                            <input type='text' className='form-control my-3 input-text' autoFocus required name='hs_reg_no' placeholder='Enter Your 10+2 Registration Number' value={data.hs_reg_no || ''} onChange={updateData} />
-                            <i class="fa-solid fa-hashtag errspan"></i>
-                        </Col>
-                        
-                        <Col sm='3' className='form-group-4'>
-                            <label for='hs_roll_no'>10+2 Roll Number <a className='required'>*</a></label>
-
-                            <input type='text' className='form-control my-3 input-text' autoFocus required name='hs_roll_no' placeholder='Enter Your 10+2 Roll Number' value={data.hs_roll_no || ''} onChange={updateData} />
-                            <i class="fa-solid fa-hashtag errspan"></i>
-                        </Col>
-                        
-                        <Col sm='3' className='form-group-4'>
-                            <label for='hs_marks'>10+2 Marks in Percentage(%) <a className='required'>*</a></label>
-
-                            <input type='text' className='form-control my-3 input-text' autoFocus required name='hs_marks' placeholder='Enter Your 10+2 Marks in Percentage(%)' value={data.hs_marks || ''} onChange={updateData} />
-                            <i class="fa-solid fa-marker errspan"></i>
-                        </Col>
-                    </Row>
+                    {educationalDetails(data.year)}
                     
                     <Row className='justify-content-center'>
                         <Col sm='6'>
