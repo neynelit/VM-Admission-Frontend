@@ -10,7 +10,7 @@ function StudentsEdit() {
     const location = useLocation()
 
     const [ data, setData ] = useState([])
-    console.log(data)
+    //console.log(data)
     // const [ dob, setDob ] = useState(new Date.now())
     // useEffect(() => {
     //     var y = dob.getFullYear()
@@ -54,7 +54,7 @@ function StudentsEdit() {
         axios
             .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${data._id}`, data)
             .then(res => {
-                navigate(`/student-details-review/${data.registration_no}`, { state: data })
+                navigate(`/student-attachments`, { state: data })
             })
             .catch(err => console.log(err))
     }
@@ -406,7 +406,7 @@ function StudentsEdit() {
                     <Row className='justify-content-center'>
                         <Col sm='6'>
                             <div className='buttons'>
-                                <button className='btn btn-primary'>Submit Application</button>
+                                <button className='btn btn-primary'>Go to File Uploads</button>
                             </div>
                         </Col>
                     </Row>

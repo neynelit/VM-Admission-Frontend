@@ -26,24 +26,41 @@ function SabpaisaStatus() {
   const [ data, setData ] = useState([])
   console.log(data);
 
-  const getStudentData = () => {
-    axios
-    .post(`${process.env.REACT_APP_BACKEND_URL}/check-student`, { name: payerName, mobile: payerMobile })
-    .then(res => setData(res.data))
-    .catch(err => console.log(err))
-  }
-
-  useEffect(() => {
-    getStudentData()
-  })
-
   const [ statusMessage, setStatusMessage ] = useState('')
   const [ seconds, setSeconds ] = useState(10)
   const [ statusColor, setStatusColor ] = useState('')
 
-  const updateAdmStatus = (id) => {
+  // const array = []
+
+  // console.log(array.push({semester: data.year, amount: data.amount, payment_status: 'true', transaction_id: transaction_id, paymentMode: paymentMode, sabpaisaTxnId: sabpaisaTxnId, bankTxnId: bankTxnId, transDate: Date.now()}));
+
+  // const [ statusArray, setStatusArray ] = useState(data.payment_status || [])
+  // console.log(statusArray);
+  // const [ statusArray2, setStatusArray2 ] = useState([])
+  // console.log(statusArray2);
+
+  // useEffect(() => {
+  //   if(data != [] || data !== '' || data !== null || data !== undefined){
+  //     if(statusArray != [] || statusArray !== '' || statusArray !== null || statusArray !== undefined){
+  //       var array = statusArray.filter(element => {
+  //         if(element['semester'] !== data.year) setStatusArray2(statusArray2.push(element))
+  //       })
+
+  //       if(status == 'SUCCESS') setStatusArray2(statusArray2.push({semester: data.year, amount: data.amount, payment_status: 'true', transaction_id: transaction_id, paymentMode: paymentMode, sabpaisaTxnId: sabpaisaTxnId, bankTxnId: bankTxnId, transDate: Date.now()}))
+        
+  //       else if(status == 'FAILED') setStatusArray2(statusArray2.push({semester: data.year, amount: data.amount, payment_status: 'false', transaction_id: transaction_id, paymentMode: paymentMode, sabpaisaTxnId: sabpaisaTxnId, bankTxnId: bankTxnId, transDate: Date.now()}))
+  //     }
+  //     else{
+  //       if(status == 'SUCCESS') setStatusArray2(statusArray2.push({semester: data.year, amount: data.amount, payment_status: 'true', transaction_id: transaction_id, paymentMode: paymentMode, sabpaisaTxnId: sabpaisaTxnId, bankTxnId: bankTxnId, transDate: Date.now()}))
+        
+  //       else if(status == 'FAILED') setStatusArray2(statusArray2.push({semester: data.year, amount: data.amount, payment_status: 'false', transaction_id: transaction_id, paymentMode: paymentMode, sabpaisaTxnId: sabpaisaTxnId, bankTxnId: bankTxnId, transDate: Date.now()}))
+  //     }
+  //   }
+  // })
+
+  const updateAdmStatus = (data, id) => {
     axios
-      .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${id}`, { admission_status: 'true', transaction_id: transaction_id, paymentMode: paymentMode, sabpaisaTxnId: sabpaisaTxnId, bankTxnId: bankTxnId, transDate: Date.now() })
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/update-student/${id}`, { payment_status: {semester: data.year, amount: data.amount, payment_status: 'true', transaction_id: transaction_id, paymentMode: paymentMode, sabpaisaTxnId: sabpaisaTxnId, bankTxnId: bankTxnId, transDate: Date.now()}, admission_status: 'true' })
       .then(() => console.log('Status updated true'))
       .catch(err => console.log(err))
   }
@@ -62,19 +79,21 @@ function SabpaisaStatus() {
         if(status == 'SUCCESS'){
           setStatusMessage('successful')
           setStatusColor('green')
-          updateAdmStatus(res.data._id)
+          updateAdmStatus(res.data, res.data._id)
+          setData(res.data)
         }
         else if(status == 'FAILED'){
           setStatusMessage('failed')
           setStatusColor('rgb(165, 0, 0)')
           updateAdmStatus2(res.data._id)
+          setData(res.data)
         }
       })
       .catch(err => console.log(err))
-  }, [status])
+  }, [status, payerName, payerMobile])
 
   const nextPageLink = () => {
-    if(status == 'SUCCESS') navigate(`/payment-slip/${data.registration_no}`)
+    if(status == 'SUCCESS') navigate(`/payment-slip/${data.registration_no}`, { state: data })
     else if(status == 'FAILED') window.location.href=`${process.env.REACT_APP_FRONTEND_URL}/login`
   }
 

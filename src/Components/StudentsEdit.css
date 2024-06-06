@@ -38,3 +38,30 @@
     margin-top: 17px;
     border: 1px solid rgba(128, 128, 128, 0.38);
 }
+
+.details-edit-student .form-group-4 .input-image{
+    padding-left: 40px;
+    padding-top: 3px;
+}
+
+.details-edit-student .form-group-4 img{
+    width: 100%;
+    max-width: 130px;
+    height: 180px;
+}
+
+.details-edit-student .form-group-img{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.details-edit-student .form-group-img-2 img{
+    width: 100%;
+    max-width: 350px;
+    border: 1px solid black;
+    height: 100px;
+    margin-top: auto;
+}

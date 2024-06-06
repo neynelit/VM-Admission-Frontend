@@ -284,9 +284,9 @@ function Navebar() {
                     <Navbar expand='lg' className='bg-body-tertiary mid-navigasion'>
                         <Container fluid className='container-brand'>
                             <Navbar.Brand>
-                                <img src='../vm_logo.png' alt='VM College Logo' />
+                                <img src='../vm_logo.png' alt='VM College Logo' onClick={e => {e.preventDefault(); navigate('/')}} />
                                 <div className='logo-nav'>
-                                    <h4>VM College</h4>
+                                    <h4 onClick={e => {e.preventDefault(); navigate('/')}} >VM College</h4>
                                     <p>Affiliated Unit of Patliputra University</p>
                                     <p>NAAC Accredited: Grade ‘B’ (1st Cycle)</p>
                                 </div>

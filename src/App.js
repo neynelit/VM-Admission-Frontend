@@ -44,6 +44,7 @@ import EditFees from './Components/Institute/EditFees';
 import ExcelFile from './Components/Institute/ExcelFile';
 import SamplePage from './Components/Institute/SamplePage';
 import ApplicationFilledForm from './Components/ApplicationFilledForm';
+import StudentAttachment from './Components/StudentAttachment';
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/student-details' element={<StudentDetails />} />
             <Route path='/student-details-edit' element={<StudentsEdit />} />
+            <Route path='/student-attachments' element={<StudentAttachment />} />
             <Route path='/student-details-review/:registration_no' element={<StudentReview />} />
 
             {/* institute page routes */}
