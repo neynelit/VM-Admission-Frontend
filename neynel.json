@@ -1,0 +1,1161 @@
+{
+    "_id": "6661a10a1dfea93675697f54",
+    "name": "ABHISHEK KUMAR",
+    "father_name": "PAPPU KUMAR",
+    "registration_no": 202243300543,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f55",
+    "name": "AMAN KUMAR",
+    "father_name": "BAMBAM KUMAR",
+    "registration_no": 202243300544,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f56",
+    "name": "AMIT KUMAR",
+    "father_name": "BIRENDRA KUMAR SINHA",
+    "registration_no": 202243300545,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f57",
+    "name": "ANKESH RAJ",
+    "father_name": "SUBHASH RAM",
+    "registration_no": 202243300546,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f58",
+    "name": "ANKIT KUMAR",
+    "father_name": "RAM SHARAN CHOUDHARY",
+    "registration_no": 202243300547,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "SC",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f59",
+    "name": "ANOJ KUMAR",
+    "father_name": "KEDAR THAKUR",
+    "registration_no": 202243300548,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f5a",
+    "name": "ARJUN KUMAR",
+    "father_name": "DEVENDRA MAHTO",
+    "registration_no": 202243300549,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f5b",
+    "name": "AVINASH RAJ",
+    "father_name": "ASHOK RAM",
+    "registration_no": 202243300550,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f5c",
+    "name": "BUGALI KUMARI",
+    "father_name": "SHIVSHANKAR YADAV",
+    "registration_no": 202243300551,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f5d",
+    "name": "DAULY KUMARI",
+    "father_name": "NAVEEN SINGH",
+    "registration_no": 202243300552,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f5e",
+    "name": "DAYANAND KUMAR",
+    "father_name": "VIJAY PANDEY",
+    "registration_no": 202243300553,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f5f",
+    "name": "DHIRAJ KUMAR",
+    "father_name": "UDAY SHANKAR SINGH",
+    "registration_no": 202243300554,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f60",
+    "name": "DIPANSHU KUMAR",
+    "father_name": "NAVIN PRASAD",
+    "registration_no": 202243300555,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f61",
+    "name": "GAUTAM KUMAR",
+    "father_name": "MITHLESH PRASAD",
+    "registration_no": 202243300556,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f62",
+    "name": "GAUTAM KUMAR",
+    "father_name": "RAKESH KUMAR",
+    "registration_no": 202243300557,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f63",
+    "name": "HARSH RAJ",
+    "father_name": "DHEERAJ KUMAR",
+    "registration_no": 202243300558,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f64",
+    "name": "KAJAL KUMARI",
+    "father_name": "SUBODH SINGH",
+    "registration_no": 202243300559,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f65",
+    "name": "KUMAR ABHISHEK",
+    "father_name": "VIJAY KUMAR",
+    "registration_no": 202243300560,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f66",
+    "name": "LALAN KUMAR",
+    "father_name": "BHOLI YADAV",
+    "registration_no": 202243300561,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f67",
+    "name": "MADHU DIVAKER",
+    "father_name": "GAUTAM MAHTO",
+    "registration_no": 202243300562,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f68",
+    "name": "MANISHA KUMARI",
+    "father_name": "ARUN SINGH",
+    "registration_no": 202243300563,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f69",
+    "name": "MANKHUSH CHAUBEY",
+    "father_name": "JITENDRANATH CHAUBEY",
+    "registration_no": 202243300564,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f6a",
+    "name": "NIHARIKA KUMARI",
+    "father_name": "NAGMANI KUMAR BENKETTA",
+    "registration_no": 202243300565,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f6b",
+    "name": "NITISH KUMAR",
+    "father_name": "SATENDAR PANDIT",
+    "registration_no": 202243300566,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f6c",
+    "name": "PREETI KUMAEI",
+    "father_name": "SURENDER PRASAD",
+    "registration_no": 202243300567,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f6d",
+    "name": "PRIYANKA KUMARI",
+    "father_name": "RAJ KUMAR PANDEY",
+    "registration_no": 202243300568,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f6e",
+    "name": "PUJA KUMARI",
+    "father_name": "UPENDRA MAHTO",
+    "registration_no": 202243300569,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f6f",
+    "name": "PUSHPLTA KUMARI",
+    "father_name": "SUJEET DAS",
+    "registration_no": 202243300570,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "SC",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f70",
+    "name": "PUTUL KUMARI",
+    "father_name": "SHAMBHU MAHTO",
+    "registration_no": 202243300571,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f71",
+    "name": "RAKESH KUMAR",
+    "father_name": "SHANKAR CHAUHAN",
+    "registration_no": 202243300572,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f72",
+    "name": "RAMCHANDAR KUMAR",
+    "father_name": "SUNIL MAHTO",
+    "registration_no": 202243300573,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f73",
+    "name": "RENU KUMARI",
+    "father_name": "SARYUG PRASAD",
+    "registration_no": 202243300574,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f74",
+    "name": "ROUSHAN KUMAR",
+    "father_name": "UDAY SINGH",
+    "registration_no": 202243300575,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f75",
+    "name": "RUNI KUMARI",
+    "father_name": "CHANDRABANSHI KUSHWAHA",
+    "registration_no": 202243300576,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f76",
+    "name": "SANTU KUMAR",
+    "father_name": "CHUNNU BIND",
+    "registration_no": 202243300577,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "SC",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f77",
+    "name": "SARVJEET KUMAR",
+    "father_name": "SHIVCHARAN RAVIDAS",
+    "registration_no": 202243300578,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "SC",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f78",
+    "name": "SATYAM KUMAR",
+    "father_name": "SUNIL SINGH",
+    "registration_no": 202243300579,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f79",
+    "name": "SAURABH KUMAR",
+    "father_name": "BRIJLAL SHARMA",
+    "registration_no": 202243300580,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f7a",
+    "name": "SHAILESH KUMAR SINGH",
+    "father_name": "PANKAJ KUMAR",
+    "registration_no": 202243300581,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f7b",
+    "name": "SHANKAR KUMAR",
+    "father_name": "PYARI RAJVANSHI",
+    "registration_no": 202243300582,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "SC",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f7c",
+    "name": "SHARVAN KUMAR",
+    "father_name": "CHARITRA RAM",
+    "registration_no": 202243300583,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f7d",
+    "name": "SHIVAM KUMAR",
+    "father_name": "AVINASH KUMAR",
+    "registration_no": 202243300584,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f7e",
+    "name": "SHIVAM KUMAR",
+    "father_name": "NIRAJ KUMAR",
+    "registration_no": 202243300585,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f7f",
+    "name": "SHIVANI KUMARI",
+    "father_name": "DHARMENDER KUMAR",
+    "registration_no": 202243300586,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f80",
+    "name": "SILAM KUMARI",
+    "father_name": "KAMLESH MAHTO",
+    "registration_no": 202243300587,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f81",
+    "name": "SUHANI KUMARI",
+    "father_name": "GORELAL MAHTO",
+    "registration_no": 202243300588,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f82",
+    "name": "SUMIT KUMAR",
+    "father_name": "MANOJ RAY",
+    "registration_no": 202243300589,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f83",
+    "name": "SUNITA KUMARI",
+    "father_name": "RAMBALAK MAHTO",
+    "registration_no": 202243300590,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f84",
+    "name": "UDAY SHANKAR KUMAR",
+    "father_name": "RAM VILASH SINGH",
+    "registration_no": 202243300591,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "General ",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f85",
+    "name": "UTTAM KUMAR",
+    "father_name": "ANIL YADAV",
+    "registration_no": 202243300592,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f86",
+    "name": "VIKASH CHAUDHARY",
+    "father_name": "RAMBRIKSH CHAUDHARY",
+    "registration_no": 202243300593,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "SC",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a10a1dfea93675697f87",
+    "name": "VISHWAJEET KUMAR",
+    "father_name": "BINAY KUMAR",
+    "registration_no": 202243300594,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a1441dfea9367569853d",
+    "name": "GURIYA KUMARI",
+    "father_name": "BRAHMDEO MAHTO",
+    "registration_no": 202243301262,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3308,
+    "blood_group": "N/A",
+    "gender": "Female",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a1441dfea93675698552",
+    "name": "NITYANAND",
+    "father_name": "MASUDAN MAHTO",
+    "registration_no": 202243301283,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a1441dfea93675698556",
+    "name": "PREM PRAKASH",
+    "father_name": "RAM PRAVESH KUMAR",
+    "registration_no": 202243301287,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a1441dfea93675698585",
+    "name": "RAUSHAN KUMAR",
+    "father_name": "JAGENDRA MANJHI",
+    "registration_no": 202243301335,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "SC",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a1441dfea9367569858e",
+    "name": "ASHISH KUMAR",
+    "father_name": "SATENDRA PRASAD",
+    "registration_no": 202243301344,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3500,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-II",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  },{
+    "_id": "6661a1441dfea936756985a5",
+    "name": "RANJAN KUMAR",
+    "father_name": "JANARDHAN CHAUHAN",
+    "registration_no": 202243301367,
+    "course": "Political Science",
+    "courseType": "UG",
+    "year": "Part 3",
+    "amount": 3324,
+    "blood_group": "N/A",
+    "gender": "Male",
+    "category": "BC-I",
+    "martial_status": "Single",
+    "religion": "Not to be Disclosed",
+    "session": "2022-2025",
+    "admission_status": false,
+    "payment_status": [
+      
+    ],
+    "__v": 0
+  }

@@ -101,7 +101,7 @@ function Login() {
                         <div className='form-group'>
                             <select class="form-select input-select" aria-label=".form-select-lg example" autoFocus name='course' onChange={updateData} >
                                 <option selected hidden value=''>Select Your Course</option>
-                                {subjects2 && subjects2.map((item, index) => {
+                                {subjects && subjects.map((item, index) => {
                                     return(
                                         <option key={index} value={item.subject}>{item.subject}</option>
                                     )
